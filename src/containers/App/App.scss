@@ -42,18 +42,12 @@ body {
 
 
   .App {
-    min-height: 100%;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
     background: radial-gradient(at 30% top, rgb(17, 128, 104) 0%, rgba(8, 28, 36, 1) 70%) !important;
   }
 
   .card {
     display: flex;
-    align-items: center;
-    justify-content: center;
+
     transition: .5s !important;
   }
 
@@ -65,7 +59,7 @@ body {
       outline: 0;
       box-shadow: none !important;
     }
-  
+
     &:hover {
       background-color: #01d277 !important;
     }
@@ -99,13 +93,13 @@ body {
     .group-item {
       display: table-cell;
     }
-  
+
     .text {
       white-space: nowrap;
       width: 1%;
       padding: 0 14px;
     }
-  
+
     .line {
       border-bottom: 24px solid $base-color !important;
       position: relative;

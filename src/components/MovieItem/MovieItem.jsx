@@ -16,7 +16,7 @@ const MovieItem = ({ poster, id, title, releaseDate, voteAvg, mediaType }) => {
       className="card"
     >
       <div className="frame">
-        <Fade delay={200}>
+        <Fade>
           <img src={poster} alt="film poster" />
         </Fade>
         <div className="details">

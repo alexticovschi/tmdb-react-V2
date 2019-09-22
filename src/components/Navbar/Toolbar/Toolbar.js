@@ -19,7 +19,8 @@ const Toolbar = props => (
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/movies/now-playing">Movies</Link>
+              {/* <Link to="/movies/now-playing">Movies</Link> */}
+              <Link to="/movies">Movies</Link>
             </li>
             <li>
               <Link to="/tv-shows">TV Shows</Link>

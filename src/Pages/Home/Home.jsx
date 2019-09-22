@@ -1,15 +1,13 @@
 import React, { Component } from "react";
-import Carousel from "../../components/Carousel/Carousel";
-import MovieList from "../../components/MovieList/MovieList";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
+import Carousel from "../../components/HomeComponents/Carousel/Carousel";
+import HomeMovieList from "../../components/HomeComponents/HomeMovieList/HomeMovieList";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import { APIKEY } from "../../config";
 
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
-import Fade from "react-reveal/Fade";
-
-import "./Home.scss";
+import "./home.scss";
 
 class Home extends Component {
   state = {
@@ -47,7 +45,7 @@ class Home extends Component {
       nowPlayingMovies: nowPlayingMovies.results
     });
 
-    setTimeout(() => this.setState({ loading: false }), 1000);
+    setTimeout(() => this.setState({ loading: false }), 500);
   };
 
   getPopularMovies = async () => {
@@ -84,32 +82,20 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="home-wrapper">
+      <div className="home-container">
         {this.state.loading ? (
           <div className="loader-container">
             <Loader type="Oval" color="#fff" width={60} height={60} />
           </div>
         ) : (
-          <div>
+          <>
             <SearchBoxWithSuggestions />
-
-            <div className="container">
-              <Fade delay={500}>
-                <Carousel movies={this.state.nowPlayingMovies} />
-              </Fade>
-
-              <div className="group">
-                <div className="group-item line" />
-                <h1 className="title group-item text">Latest Movies</h1>
-                <div className="group-item line" />
-              </div>
-
-              <MovieList
-                movieList={this.state.latestMovies}
-                getMovieById={this.getMovieById}
-              />
-            </div>
-          </div>
+            <Carousel movies={this.state.nowPlayingMovies} />
+            <HomeMovieList
+              latestMovies={this.state.latestMovies}
+              getMovieById={this.getMovieById}
+            />
+          </>
         )}
       </div>
     );

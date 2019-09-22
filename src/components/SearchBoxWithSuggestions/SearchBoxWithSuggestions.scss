@@ -1,12 +1,17 @@
-.searchbox-wrapper {
+.searchbox-container {
   width: 100%;
   background: #fff !important;
 
+  display: grid;
+  grid-column: center-start / center-end;
+
+  @media screen and (max-width: 1220px) {
+    grid-column: full-start / full-end;
+  }
+
   #form {
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 0 .1rem;
     position: relative;
-    text-align: center;
   }
 
   .searchBar {

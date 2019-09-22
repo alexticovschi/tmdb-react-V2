@@ -5,25 +5,25 @@ import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/
 
 import { APIKEY } from "../../config";
 
-class NowPlayingMovies extends Component {
+class PopularMovies extends Component {
   state = {
-    nowPlayingMovies: []
+    popularMovies: []
   };
 
   componentDidMount() {
-    this.getNowPlayingMovies();
+    this.getPopularMovies();
   }
 
-  getNowPlayingMovies = async () => {
+  getPopularMovies = async () => {
     const resp = await fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?&api_key=${APIKEY}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/popular?&api_key=${APIKEY}&language=en-US&page=1`
     );
-    const nowPlayingMovies = await resp.json();
-    this.setState({ nowPlayingMovies: nowPlayingMovies.results });
+    const popularMovies = await resp.json();
+    this.setState({ popularMovies: popularMovies.results });
   };
 
   render() {
-    const { nowPlayingMovies } = this.state;
+    const { popularMovies } = this.state;
 
     return (
       <div className="movies-wrapper">
@@ -32,20 +32,18 @@ class NowPlayingMovies extends Component {
         <div className="container">
           <div className="group">
             <div className="group-item line" />
-            <h1 className="group-item text">In Theatres</h1>
+            <h1 className="group-item text">Popular</h1>
             <div className="group-item line" />
           </div>
 
           <MoviesNavigationButtons />
 
-          <MovieList
-            movieList={nowPlayingMovies}
-            getMovieById={this.getMovieById}
-          />
+          <MovieList movieList={popularMovies} />
         </div>
+
       </div>
     );
   }
 }
 
-export default NowPlayingMovies;
+export default PopularMovies;

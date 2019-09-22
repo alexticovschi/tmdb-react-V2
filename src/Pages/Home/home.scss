@@ -1,0 +1,13 @@
+.home-container {
+    display: grid;
+    grid-template-rows: 5vh minmax(min-content, auto);
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 9.5rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+    margin-top: 3.58rem;
+}
+
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
