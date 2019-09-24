@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 import MovieData from "../../components/MovieInfoComponents/MovieData/MovieData";
-
+import Banner from "../../components/MovieInfoComponents/Banner/Banner";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -92,8 +92,9 @@ class MovieInfo extends Component {
   };
 
   render() {
-    const { movie, movieRecommedations } = this.state;
+    const { movie, movieRecommedations, trailers, modalIsOpen } = this.state;
     const base_url = "https://image.tmdb.org/t/p/w500";
+    const base_url2 = "https://image.tmdb.org/t/p/w1400_and_h450_face";
 
     const genres = movie.genres;
     let list = genres && genres.map(g => g.name + " ");
@@ -114,6 +115,15 @@ class MovieInfo extends Component {
               base_url={base_url}
               movie={movie}
               list={list}
+            />
+
+            <Banner
+              base_url={base_url2}
+              movie={movie}
+              trailers={trailers}
+              openModal={this.openModal}
+              modalIsOpen={modalIsOpen}
+              closeModal={this.closeModal}
             />
           </>
         )}
