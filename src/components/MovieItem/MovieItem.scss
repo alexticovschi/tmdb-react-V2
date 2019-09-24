@@ -3,6 +3,34 @@
 	src: url("../../sf-movie-poster.regular.ttf");
 }
 
+.card {
+	display: flex;
+	justify-content: space-around !important;
+	transition: .5s !important;
+
+	&__img {
+		width: 100%;
+	}
+}
+
+.card {
+	margin: 15px auto;
+	border-radius: 4px;
+	background-color: white;
+	box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10);
+	transition: 0.6s;
+}
+
+.card:hover {
+	box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 1), 0 4px 10px 0 rgba(0, 0, 0, 0.10);
+	filter: brightness(130%);
+}
+
+.card img {
+	border-radius: 4px;
+	height: 100%;
+}
+
 .frame {
 	text-align: center;
 	position: relative;
@@ -47,6 +75,36 @@
 	&:hover .details {
 		transform: translate(-50%, -50%) rotateY(0deg);
 		opacity: 1;
+	}
+}
+
+
+@media screen and (min-width: 800px) {
+	.card {
+		flex: 0 1 calc(18.8%);
+	}
+}
+
+@media screen and (max-width: 1125px) {
+	.card {
+		flex: 0 1 calc(21% - 1rem);
+	}
+}
+
+@media screen and (max-width: 855px) {
+	.card {
+		flex: 0 1 calc(30% - 0.5rem);
+	}
+}
+
+@media screen and (max-width: 455px) {
+	.card {
+		flex: 0 1 calc(33% - 0.3rem);
+	}
+
+	.scroll-up-button {
+		width: 44px !important;
+		height: 40px !important;
 	}
 }
 

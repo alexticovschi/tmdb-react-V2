@@ -7,6 +7,7 @@ $base-color: #74dfaf;
     height: 100%;
 }
 
+
 :focus {
     outline: 0;
 }
@@ -66,7 +67,7 @@ $base-color: #74dfaf;
             opacity: 0;
         }
     }
-    
+
     &::after {
         content: '';
         background-color: $base-color;
@@ -131,11 +132,12 @@ section.similar-movies {
     background-color: #fff;
     padding-bottom: 20px;
 
+    height: 100%;
 
     .img-info {
         max-width: 100% !important;
     }
-    
+
     .box-left {
         flex: 30%;
         background-color: #fff;
@@ -143,24 +145,24 @@ section.similar-movies {
         margin-bottom: 0px;
         margin-left: 0px;
     }
-    
+
     .box-right {
         flex: 70%;
         background-color: white;
         padding: 20px;
     }
-    
+
     .inner-box-right {
         padding-left: 5px;
     }
-    
+
     .movie-info-title {
         text-align: left;
         margin-top: 0px;
         padding: 6px 0px;
         border-radius: 3px;
         color: rgb(56, 56, 56);
-    
+
         font-family: 'SF-Movie';
         font-size: 3.8rem;
         letter-spacing: 3.7px;
@@ -173,8 +175,6 @@ h1.title {
     margin: 0 auto;
     color: rgb(51, 51, 51);
 }
-
-
 
 .card-title {
     font-size: 0.9rem;

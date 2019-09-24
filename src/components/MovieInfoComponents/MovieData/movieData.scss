@@ -1,0 +1,85 @@
+/* COLOR VARIABLES */
+$base-color: #74dfaf;
+
+.movie-data {
+    grid-column: center-start / center-end;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #fff;
+
+    @media(max-width:1220px) {
+        grid-column: full-start / full-end;
+    }
+
+    @media(max-width:720px) {
+        flex-direction: column;
+    }
+
+    &__box-left {
+        flex: 30%;
+        background-color: #fff;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+    }
+
+    &__img {
+        height: 100%;
+        width: 100%;
+    }
+
+    &__box-right {
+        flex: 70%;
+        background-color: white;
+        padding: 20px;
+    }
+
+    &__title {
+        text-align: left !important;
+        margin-top: 0px;
+        padding: 6px 0px;
+        border-radius: 3px;
+        color: rgb(56, 56, 56);
+
+        font-family: 'SF-Movie';
+        font-size: 3.7rem;
+        letter-spacing: 6px;
+
+    }
+
+    &__star-rating,
+    p,
+    p strong {
+        font-size: 1.08rem;
+        color: rgb(75, 75, 75) !important;
+    }
+
+
+}
+
+/* movie-info-title styles */
+.line-left {
+    border-bottom: 30px solid $base-color !important;
+    width: 20px;
+    position: relative;
+    top: -6px;
+}
+
+.line-right {
+    width: auto;
+    border-bottom: 30px solid $base-color !important;
+    position: relative;
+    top: -6px;
+}
+
+.react-rater-star.is-active,
+.react-rater-star.is-active-half:before {
+    color: #fc6;
+}
+
+.react-rater-star {
+    font-size: 21px;
+    color: #747171;
+}

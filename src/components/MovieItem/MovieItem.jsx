@@ -17,7 +17,7 @@ const MovieItem = ({ poster, id, title, releaseDate, voteAvg, mediaType }) => {
     >
       <div className="frame">
         <Fade>
-          <img src={poster} alt="film poster" />
+          <img className="card__img" src={poster} alt="film poster" />
         </Fade>
         <div className="details">
           <h2 className="card-title">{title}</h2>
