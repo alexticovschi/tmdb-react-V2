@@ -5,6 +5,9 @@ $base-color: #74dfaf;
     grid-column: center-start / center-end;
     background-color: rgb(190, 190, 190);
 
+    @media(max-width:1220px) {
+        grid-column: full-start / full-end;
+    }
 
     &__inner {
         display: block;

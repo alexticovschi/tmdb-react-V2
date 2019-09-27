@@ -47,6 +47,11 @@ $base-color: #74dfaf;
         font-size: 3.7rem;
         letter-spacing: 6px;
 
+        @media screen and (max-width: 500px) {
+            font-size: 3rem;
+            letter-spacing: 5px;
+        }
+
     }
 
     &__star-rating,
