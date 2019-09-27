@@ -23,7 +23,7 @@ class Movies extends Component {
 
   getMovies = async () => {
     const resp = await fetch(
-      `https://api.themoviedb.org/3/discover/movie/?country=US&api_key=${APIKEY}&sort_by=popularity.desc&page=${this.state.page}`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&sort_by=popularity.desc&page=${this.state.page}`
     );
     const movies = await resp.json();
 
