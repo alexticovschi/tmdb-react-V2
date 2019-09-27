@@ -3,7 +3,7 @@ import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/
 import MovieData from "../../components/MovieInfoComponents/MovieData/MovieData";
 import Banner from "../../components/MovieInfoComponents/Banner/Banner";
 import MovieCredits from "../../components/MovieInfoComponents/MovieCredits/MovieCredits";
-
+import Recommendations from "../../components/MovieInfoComponents/Recommendations/Recommendations";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -17,7 +17,7 @@ class MovieInfo extends Component {
     movie: [],
     credits: [],
     similar_movies: [],
-    movieRecommedations: [],
+    movieRecommendations: [],
     trailers: [],
 
     modalIsOpen: false
@@ -81,8 +81,8 @@ class MovieInfo extends Component {
     const resp = await fetch(
       `https://api.themoviedb.org/3/movie/${ID}/recommendations?&api_key=${APIKEY}&language=en-US&page=1`
     );
-    const movieRecommedations = await resp.json();
-    this.setState({ movieRecommedations: movieRecommedations.results });
+    const movieRecommendations = await resp.json();
+    this.setState({ movieRecommendations: movieRecommendations.results });
   };
 
   getTrailers = async ID => {
@@ -96,7 +96,7 @@ class MovieInfo extends Component {
   render() {
     const {
       movie,
-      movieRecommedations,
+      movieRecommendations,
       trailers,
       modalIsOpen,
       credits
@@ -106,8 +106,6 @@ class MovieInfo extends Component {
 
     const genres = movie.genres;
     let list = genres && genres.map(g => g.name + " ");
-
-    console.log(this.state);
 
     return (
       <div className="movie-info-container">
@@ -135,6 +133,8 @@ class MovieInfo extends Component {
             />
 
             <MovieCredits credits={credits} />
+
+            <Recommendations movieRecommendations={movieRecommendations} />
           </>
         )}
       </div>
