@@ -29,6 +29,11 @@
     }
 }
 
+@media screen and (min-width: 800px) {
+    .actor-card {
+        flex: 0 1 calc(19.99% - 4rem);
+    }
+}
 
 @media (max-width:475px) {
     .actor-card {
@@ -37,20 +42,15 @@
             text-align: center;
         }
 
-        flex: 0 1 calc(38% - 0.5rem) !important;
-
-    }
-}
-
-
-@media screen and (min-width: 800px) {
-    .actor-card {
-        flex: 0 1 calc(19.99% - 3rem) !important;
+        &__img-wrapper__img {
+            min-height: 136px;
+            min-width: 91px;
+        }
     }
 }
 
 @media screen and (max-width: 800px) {
     .actor-card {
-        flex: 0 1 calc(24% - 0.5rem);
+        flex: 0 1 calc(23% - 0.5rem);
     }
 }
