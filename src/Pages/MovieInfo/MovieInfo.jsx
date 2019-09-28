@@ -4,6 +4,8 @@ import MovieData from "../../components/MovieInfoComponents/MovieData/MovieData"
 import Banner from "../../components/MovieInfoComponents/Banner/Banner";
 import MovieCredits from "../../components/MovieInfoComponents/MovieCredits/MovieCredits";
 import Recommendations from "../../components/MovieInfoComponents/Recommendations/Recommendations";
+import SimilarMovies from "../../components/MovieInfoComponents/SimilarMovies/SimilarMovies";
+
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -16,7 +18,7 @@ class MovieInfo extends Component {
     loading: true,
     movie: [],
     credits: [],
-    similar_movies: [],
+    similarMovies: [],
     movieRecommendations: [],
     trailers: [],
 
@@ -64,7 +66,7 @@ class MovieInfo extends Component {
       `https://api.themoviedb.org/3/movie/${ID}/similar?&api_key=${APIKEY}&language=en-US&page=1`
     );
     const movies = await resp.json();
-    this.setState({ similar_movies: movies.results });
+    this.setState({ similarMovies: movies.results });
   };
 
   getMovieCredits = async ID => {
@@ -97,6 +99,7 @@ class MovieInfo extends Component {
     const {
       movie,
       movieRecommendations,
+      similarMovies,
       trailers,
       modalIsOpen,
       credits
@@ -135,6 +138,11 @@ class MovieInfo extends Component {
             <MovieCredits credits={credits} />
 
             <Recommendations movieRecommendations={movieRecommendations} />
+
+            <SimilarMovies
+              movieList={similarMovies}
+              getMovieById={this.getMovieById}
+            />
           </>
         )}
       </div>

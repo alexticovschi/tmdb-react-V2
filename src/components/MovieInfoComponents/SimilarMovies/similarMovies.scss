@@ -1,0 +1,22 @@
+.similar-movies-container {
+    grid-column: center-start / center-end;
+    background-color: rgb(246, 246, 246);
+    padding: 6rem 0;
+
+    @media(max-width:1220px) {
+        padding: 3rem 0;
+        grid-column: full-start / full-end;
+    }
+
+    &__similar-movies {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        padding: 0 1rem;
+
+        @media(max-width:500px) {
+            padding: 0 0.5rem;
+        }
+    }
+}
