@@ -85,11 +85,19 @@
 	}
 }
 
-@media screen and (max-width: 1125px) {
+
+@media screen and (max-width: 1325px) {
 	.card {
-		flex: 0 1 calc(21% - 1rem);
+		flex: 0 1 calc(24.9% - .5rem);
 	}
 }
+
+@media screen and (max-width: 1125px) {
+	.card {
+		flex: 0 1 calc(22% - 0.5rem);
+	}
+}
+
 
 @media screen and (max-width: 855px) {
 	.card {
@@ -99,7 +107,7 @@
 
 @media screen and (max-width: 455px) {
 	.card {
-		flex: 0 1 calc(33% - 0.3rem);
+		flex: 0 1 calc(33% - 0.8rem);
 	}
 
 	.scroll-up-button {
@@ -115,6 +123,6 @@
 	}
 
 	.frame {
-		min-height: 10vh;
+		min-height: 5vh;
 	}
 }
