@@ -42,6 +42,7 @@ const MovieData = ({
               <strong>Genre: </strong>
               {list.map(genre => (
                 <Link
+                  key={genre.id}
                   to={`/genres/${genre.id}`}
                   className="movie-data__details__genre-item"
                 >

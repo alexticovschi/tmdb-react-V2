@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 import MovieData from "../../components/MovieInfoComponents/MovieData/MovieData";
 import Banner from "../../components/MovieInfoComponents/Banner/Banner";
+import MovieOverview from "../../components/MovieInfoComponents/MovieOverview/MovieOverview";
+import MovieInfoBar from "../../components/MovieInfoComponents/MovieInfoBar/MovieInfoBar";
 import MovieCredits from "../../components/MovieInfoComponents/MovieCredits/MovieCredits";
 import Recommendations from "../../components/MovieInfoComponents/Recommendations/Recommendations";
 import SimilarMovies from "../../components/MovieInfoComponents/SimilarMovies/SimilarMovies";
@@ -107,8 +109,10 @@ class MovieInfo extends Component {
     const base_url = "https://image.tmdb.org/t/p/w500";
     const base_url2 = "https://image.tmdb.org/t/p/w1400_and_h450_face";
 
+    console.log(movie.genres);
+
     const genres = movie.genres;
-    let list = genres && genres.map(g => g.name + " ");
+    // let list = genres && genres.map(g => g.name + " ");
 
     return (
       <div className="movie-info-container">
@@ -120,20 +124,29 @@ class MovieInfo extends Component {
           <>
             <SearchBoxWithSuggestions />
             <MovieData
-              imgPath={movie.poster_path}
-              base_url={base_url}
+              imgPath1={movie.poster_path}
+              imgPath2={movie.backdrop_path}
+              base_url1={base_url}
+              base_url2={base_url2}
               movie={movie}
-              list={list}
+              list={genres}
             />
 
-            <Banner
+            <MovieOverview overview={movie.overview} />
+            <MovieInfoBar
+              time={movie.runtime}
+              budget={movie.budget}
+              revenue={movie.revenue}
+            />
+
+            {/* <Banner
               base_url={base_url2}
               movie={movie}
               trailers={trailers}
               openModal={this.openModal}
               modalIsOpen={modalIsOpen}
               closeModal={this.closeModal}
-            />
+            /> */}
 
             <MovieCredits credits={credits} />
 

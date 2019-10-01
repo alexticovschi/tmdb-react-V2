@@ -1,0 +1,51 @@
+.movie-info-bar {
+    grid-column: center-start / center-end;
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: rgb(20, 20, 20);
+    padding: 2rem 6rem;
+
+    @media (max-width: 1220px) {
+        grid-column: full-start / full-end;
+        padding: 2rem;
+    }
+
+    @media (max-width: 425px) {
+        grid-column: full-start / full-end;
+        padding: 2rem 1rem;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+
+
+        @media (max-width: 425px) {}
+    }
+
+    &__info {
+        color: #fff;
+        font-size: 1.2rem;
+
+        @media (max-width: 425px) {
+            font-size: 1rem;
+        }
+    }
+
+
+
+
+    .fa-time,
+    .fa-revenue,
+    .fa-budget {
+        color: #74dfaf;
+        margin-right: .8rem;
+        font-size: 2rem;
+
+        @media (max-width: 650px) {
+            display: none;
+        }
+    }
+}
