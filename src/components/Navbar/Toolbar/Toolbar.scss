@@ -4,11 +4,11 @@
     left: 0;
     width: 100%;
     background: rgb(5, 0, 0);
-    min-height: 6vh;
     z-index: 100000000;
 
     .toolbar-wrapper {
         max-width: 1220px;
+
         margin: 0 auto;
     }
 
@@ -58,7 +58,7 @@
 }
 
 
-@media (max-width: 1200px) {
+@media (max-width: 1220px) {
     .toolbar-wrapper {
         padding: 0 15px;
     }
@@ -66,8 +66,6 @@
 
 @media (max-width: 775px) {
     .toolbar {
-        height: 56px;
-
         .toolbar_navigation-items {
             display: none;
         }
