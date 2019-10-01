@@ -11,10 +11,10 @@ const Footer = () => {
                 </a>
             </div>
             <div className="social-media">
-                <a href="https://www.freecodecamp.org/alexticovschi" className="fa fa-free-code-camp">{}</a>
-                <a href="https://codepen.io/AlexTicovschi" className="fa fa-codepen">{}</a>
-                <a href="https://github.com/alexticovschi/tmdb-react" className="fa fa-github">{}</a>
-                <a href="https://www.linkedin.com/in/alex-ticovschi-4b3832134/" className="fa fa-linkedin">{}</a>
+                <a href="https://www.freecodecamp.org/alexticovschi" className="fa fa-free-code-camp" target="_blank">{}</a>
+                <a href="https://codepen.io/AlexTicovschi" className="fa fa-codepen" target="_blank">{}</a>
+                <a href="https://github.com/alexticovschi/tmdb-react-V2" className="fa fa-github" target="_blank">{}</a>
+                <a href="https://www.linkedin.com/in/alex-ticovschi-4b3832134/" className="fa fa-linkedin" target="_blank">{}</a>
             </div>
         </footer>
     );
