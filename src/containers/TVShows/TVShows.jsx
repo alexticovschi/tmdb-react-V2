@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TVShowsList from "../../components/TVShowsList/TVShowsList";
+import TVShowsList from "../../components/TVShowsComponents/TVShowsList/TVShowsList";
 import TVShowNavigationButtons from "../../components/TVShowNavigationButtons/TVShowNavigationButtons";
 import SearchBoxWithSuggestionsTV from "../../components/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions";
 

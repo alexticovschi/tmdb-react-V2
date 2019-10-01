@@ -2,6 +2,7 @@ import React from "react";
 import TVShowItem from "../TVShowItem/TVShowItem";
 
 const TVShowsList = ({ tvShowList, getTVShowById }) => {
+  console.log(tvShowList);
   const base_url = "https://image.tmdb.org/t/p/w342";
   const not_available_poster =
     "https://dummyimage.com/243x350/7b8a91/ffffff&text=Poster+Not+Available";
@@ -23,13 +24,7 @@ const TVShowsList = ({ tvShowList, getTVShowById }) => {
         }
       />
     ));
-  return (
-    <div className="tvshow-list-wrapper">
-      <div className="container">
-        <main className="main-content">{tv_shows_list}</main>
-      </div>
-    </div>
-  );
+  return <>{tv_shows_list}</>;
 };
 
 export default TVShowsList;

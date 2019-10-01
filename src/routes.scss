@@ -18,6 +18,8 @@ body {
   font-size: 62.5%;
   margin: 0 auto;
 
+  overflow-x: hidden;
+
   /* Scrollbar styles */
   &::-webkit-scrollbar {
     width: 1em;

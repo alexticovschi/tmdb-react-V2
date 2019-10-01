@@ -50,7 +50,7 @@ class SearchBoxWithSuggestions extends Component {
 
     render() {
         return (
-            <div className="searchbox-wrapper">
+            <div className="searchbox-container">
                 <form onSubmit={this.onSubmit} id="form">
                     <input 
                         type="text" 

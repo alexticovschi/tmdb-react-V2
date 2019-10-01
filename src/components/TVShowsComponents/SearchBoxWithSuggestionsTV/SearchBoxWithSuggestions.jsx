@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import SearchResults from './SearchResults';
 import search from './search.svg';
 
-import { APIKEY } from '../../config';
-
+import { APIKEY } from '../../../config';
+import "./SearchBoxWithSuggestions.scss";
 
 class SearchBoxWithSuggestions extends Component {
     state = {
@@ -50,7 +50,7 @@ class SearchBoxWithSuggestions extends Component {
 
     render() {
         return (
-            <div className="searchbox-wrapper">
+            <div className="searchbox-container">
                 <form onSubmit={this.onSubmit} id="form">
                     <input 
                         type="text" 

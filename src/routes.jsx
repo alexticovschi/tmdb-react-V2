@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./Pages/Home/Home";
 import Movies from "./Pages/Movies/Movies";
 import MovieInfo from "./Pages/MovieInfo/MovieInfo";
+import TVShows from "./Pages/TVShows/TVShows";
 
 import Footer from "./components/Footer/Footer";
 
@@ -20,7 +21,7 @@ import Footer from "./components/Footer/Footer";
 // import NowPlayingMovies from "./containers/NowPlayingMovies/NowPlayingMovies";
 // import PopularMovies from "./containers/PopularMovies/PopularMovies";
 // import TopRatedMovies from "./containers/TopRatedMovies/TopRatedMovies";
-// import MovieGenres from "./containers/MovieGenres/MovieGenres";
+import MovieGenres from "./containers/MovieGenres/MovieGenres";
 
 import { Switch, Route } from "react-router-dom";
 import { withRouter } from "react-router-dom";
@@ -37,6 +38,10 @@ class Routes extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/movies" component={Movies} />
           <Route exact path="/movie-info/:movie_id" component={MovieInfo} />
+          <Route exact path="/genres" component={MovieGenres} />{" "}
+          <Route exact path="/genres/:genre_id" component={MovieGenres} />
+          <Route exact path="/tv-shows" component={TVShows} />
+
           {/* <Route exact path="/movies/now-playing" component={Movies} />
           <Route exact path="/movies/popular" component={PopularMovies} />
           <Route exact path="/movies/top-rated" component={TopRatedMovies} />
