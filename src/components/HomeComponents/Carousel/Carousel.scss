@@ -1,6 +1,7 @@
 .carousel-container {
     display: grid;
     grid-column: center-start / center-end;
+    animation: animateCarousel 1.5s;
 
     @media screen and (max-width: 1220px) {
         grid-column: full-start / full-end;
@@ -70,4 +71,14 @@
         }
     }
 
+}
+
+@keyframes animateCarousel {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

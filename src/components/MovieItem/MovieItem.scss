@@ -82,6 +82,7 @@
 @media screen and (min-width: 800px) {
 	.card {
 		flex: 0 1 calc(18.8%);
+		min-height: 35vh !important;
 	}
 }
 
