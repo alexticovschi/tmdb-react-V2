@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import SearchBoxWithSuggestions from "../../components/TVShowsComponents/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions";
 import TVShowData from "../../components/TVShowInfoComponents/TVShowData/TVShowData";
-import Banner from "../../components/MovieInfoComponents/Banner/Banner";
-import MovieOverview from "../../components/MovieInfoComponents/MovieOverview/MovieOverview";
-import MovieInfoBar from "../../components/MovieInfoComponents/MovieInfoBar/MovieInfoBar";
-import MovieCredits from "../../components/MovieInfoComponents/MovieCredits/MovieCredits";
+import TVShowOverview from "../../components/MovieInfoComponents/MovieOverview/MovieOverview";
+import TVShowCredits from "../../components/MovieInfoComponents/MovieCredits/MovieCredits";
+import TVShowInfoBar from "../../components/TVShowInfoComponents/TVShowInfoBar/TVShowInfoBar";
 import Recommendations from "../../components/MovieInfoComponents/Recommendations/Recommendations";
-import SimilarMovies from "../../components/MovieInfoComponents/SimilarMovies/SimilarMovies";
 
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -21,7 +19,7 @@ class MovieInfo extends Component {
     tvShow: [],
     tvShowCredits: [],
     similarTVShows: [],
-    tvShowRecommedations: []
+    tvShowRecommendations: []
   };
 
   componentDidMount() {
@@ -72,22 +70,24 @@ class MovieInfo extends Component {
     const resp = await fetch(
       `https://api.themoviedb.org/3/tv/${ID}/recommendations?&api_key=${APIKEY}&language=en-US&page=1`
     );
-    const tvShowRecommedations = await resp.json();
-    this.setState({ tvShowRecommedations: tvShowRecommedations.results });
+    const tvShowRecommendations = await resp.json();
+    this.setState({ tvShowRecommendations: tvShowRecommendations.results });
   };
 
   render() {
     const {
       tvShow,
-      tvShowRecommedations,
+      tvShowRecommendations,
       tvShowCredits,
       similarTVShows
     } = this.state;
 
+    const creators = tvShow.created_by;
+
     const base_url = "https://image.tmdb.org/t/p/w500";
     const base_url2 = "https://image.tmdb.org/t/p/w1400_and_h450_face";
 
-    console.log(this.state.tvShow);
+    console.log(tvShow);
 
     const genres = tvShow.genres;
 
@@ -108,10 +108,15 @@ class MovieInfo extends Component {
               tvShow={tvShow}
               list={genres}
             />
+            
 
-            <MovieOverview overview={tvShow.overview} />
+            <TVShowOverview overview={tvShow.overview} />
 
-            <MovieCredits credits={tvShowCredits} />
+            <TVShowInfoBar creators={creators} first_air_date={tvShow.first_air_date}/>
+
+            <TVShowCredits credits={tvShowCredits} />
+
+            <Recommendations movieRecommendations={tvShowRecommendations}/>
           </>
         )}
       </div>

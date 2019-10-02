@@ -1,0 +1,81 @@
+$base-color: #74dfaf;
+
+.tvshow-info-bar {
+    grid-column: center-start / center-end;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    background-color: rgb(20, 20, 20);
+    padding: 2rem 6rem;
+
+    @media (max-width: 1220px) {
+        grid-column: full-start / full-end;
+        padding: 2rem;
+    }
+
+    @media (max-width: 425px) {
+        grid-column: full-start / full-end;
+        padding: 2rem 1rem;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+
+
+        @media (max-width: 425px) {}
+    }
+
+    &__creator {
+        color: #fff;
+        border: 1px solid $base-color;
+        padding: .3rem .5rem;
+        border-radius: .6rem;
+        margin-left: .5rem;
+        transition: all .4s;
+        font-size: 1rem;
+
+        @media (max-width: 500px) {
+            font-size: .9rem;
+            margin-top: .6rem;
+        }
+
+        @media (max-width: 410px) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &:hover {
+            color: $base-color;
+        }
+    }
+
+    &__info {
+        color: #fff;
+        font-size: 1rem;
+
+        @media (max-width: 570px) {
+            padding: 1rem;
+        }
+
+        @media (max-width: 425px) {
+            font-size: 1rem;
+        }
+    }
+
+
+
+
+    .fa-film,
+    .fa-calendar-alt {
+        color: #74dfaf;
+        margin-right: .8rem;
+        font-size: 2rem;
+
+        @media (max-width: 650px) {
+            display: none;
+        }
+    }
+}
