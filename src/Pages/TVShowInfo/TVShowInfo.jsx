@@ -4,7 +4,7 @@ import TVShowData from "../../components/TVShowInfoComponents/TVShowData/TVShowD
 import TVShowOverview from "../../components/MovieInfoComponents/MovieOverview/MovieOverview";
 import TVShowCredits from "../../components/MovieInfoComponents/MovieCredits/MovieCredits";
 import TVShowInfoBar from "../../components/TVShowInfoComponents/TVShowInfoBar/TVShowInfoBar";
-import Recommendations from "../../components/MovieInfoComponents/Recommendations/Recommendations";
+import Recommendations from "../../components/Recommendations/Recommendations";
 
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -116,7 +116,7 @@ class MovieInfo extends Component {
 
             <TVShowCredits credits={tvShowCredits} />
 
-            <Recommendations movieRecommendations={tvShowRecommendations}/>
+            <Recommendations path="/tv-show-info" recommendations={tvShowRecommendations}/>
           </>
         )}
       </div>

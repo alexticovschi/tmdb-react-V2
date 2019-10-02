@@ -3,10 +3,10 @@ import SwiperSlider from "../SwiperSlider/SwiperSlider";
 
 import "./recommendations.scss";
 
-const Recommendations = ({ movieRecommendations }) => {
+const Recommendations = ({ recommendations, path }) => {
   return (
     <section className="recommendations-container">
-      {movieRecommendations.length > 0 ? (
+      {recommendations.length > 0 ? (
         <div className="recommendations-container__inner">
           <div className="group">
             <div className="group-item line"></div>
@@ -14,7 +14,7 @@ const Recommendations = ({ movieRecommendations }) => {
             <div className="group-item line"></div>
           </div>
 
-          <SwiperSlider items={movieRecommendations} />
+          <SwiperSlider path={path} items={recommendations} />
         </div>
       ) : null}
     </section>

@@ -42,15 +42,17 @@ class SwiperSlider extends Component {
     };
 
     const base_url = "https://image.tmdb.org/t/p/w342";
+    const { path } = this.props;
 
+    console.log(this.props)
     return (
       <div className="slider-container">
         <Swiper {...params}>
           {this.props.items.map(item => (
             <Link
               key={item.id}
-              to={`/movie-info/${item.id}`}
-              onClick={() => this.props.history.push(`/movie-info/${item.id}`)}
+              to={`${path}/${item.id}`}
+              onClick={() => this.props.history.push(`${path}/${item.id}`)}
             >
               <img
                 className="swiper-img card"

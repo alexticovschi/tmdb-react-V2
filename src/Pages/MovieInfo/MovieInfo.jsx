@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 import MovieData from "../../components/MovieInfoComponents/MovieData/MovieData";
-import Banner from "../../components/MovieInfoComponents/Banner/Banner";
 import MovieOverview from "../../components/MovieInfoComponents/MovieOverview/MovieOverview";
 import MovieInfoBar from "../../components/MovieInfoComponents/MovieInfoBar/MovieInfoBar";
 import MovieCredits from "../../components/MovieInfoComponents/MovieCredits/MovieCredits";
-import Recommendations from "../../components/MovieInfoComponents/Recommendations/Recommendations";
+import Recommendations from "../../components/Recommendations/Recommendations";
 import SimilarMovies from "../../components/MovieInfoComponents/SimilarMovies/SimilarMovies";
 
 import Loader from "react-loader-spinner";
@@ -139,18 +138,10 @@ class MovieInfo extends Component {
               revenue={movie.revenue}
             />
 
-            {/* <Banner
-              base_url={base_url2}
-              movie={movie}
-              trailers={trailers}
-              openModal={this.openModal}
-              modalIsOpen={modalIsOpen}
-              closeModal={this.closeModal}
-            /> */}
 
             <MovieCredits credits={credits} />
 
-            <Recommendations movieRecommendations={movieRecommendations} />
+            <Recommendations path="/movie-info" recommendations={movieRecommendations}/>
 
             <SimilarMovies
               movieList={similarMovies}
