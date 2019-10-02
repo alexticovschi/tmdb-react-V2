@@ -1,0 +1,217 @@
+/* COLOR VARIABLES */
+$base-color: #74dfaf;
+
+.tvshow-data {
+    grid-column: center-start / center-end;
+
+    @media (max-width: 1220px) {
+        grid-column: full-start / full-end;
+    }
+
+    animation: animateBackdrop 1.5s;
+
+    &__inner {
+        grid-column: center-start / center-end;
+        display: grid;
+        grid-template-columns: repeat(14, 1fr);
+        grid-template-rows: repeat(10, 3.2vw);
+
+        @media (max-width: 1220px) {
+            grid-template-rows: repeat(12, 5vw);
+        }
+
+        @media (max-width: 775px) {
+            grid-template-rows: repeat(10, 6vw);
+        }
+
+        @media (max-width: 500px) {
+            grid-template-columns: repeat(30, 1fr);
+
+            grid-template-rows: repeat(10, 9vw);
+        }
+
+        animation: animateBackdrop 1s;
+
+    }
+
+    &__backdrop {
+        height: 100%;
+        width: 100%;
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        display: block;
+        object-fit: cover;
+
+        opacity: 0.4;
+        z-index: 1000;
+    }
+
+    &__details {
+        height: 100%;
+        width: 100%;
+        grid-column: 5 / span 9;
+        grid-row: 3 / span 6;
+
+        padding: 1rem 2rem 1rem 4rem;
+        z-index: 1000;
+        border-radius: 1rem;
+
+        border: 2px solid $base-color;
+
+        display: grid;
+
+        background: rgba(26, 29, 26, 0.8);
+
+        &__genre {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+
+            strong {
+                align-self: center;
+                margin-right: .5rem;
+            }
+        }
+
+        &__genre-item {
+            color: #fff;
+            border: 1px solid $base-color;
+            padding: .3rem .5rem;
+            border-radius: .6rem;
+            margin-right: .5rem;
+            transition: all .4s;
+            font-size: 1rem;
+
+            @media (max-width: 500px) {
+                font-size: .9rem;
+                margin-top: .3rem;
+            }
+
+            &:hover {
+                color: $base-color;
+            }
+        }
+
+        @media (max-width: 700px) {
+            grid-column: 1 / -1;
+            padding: 2rem 1rem 2rem 18.5rem;
+        }
+
+        @media (max-width: 600px) {
+            grid-column: 1 / -1;
+            padding: 2rem 1rem 2rem 16rem;
+        }
+
+        @media (max-width: 500px) {
+            padding: 2rem 1rem 2rem 14rem;
+        }
+
+        @media (max-width: 450px) {
+            padding: 2rem 1rem 2rem 10.5rem;
+        }
+
+        @media (max-width: 400px) {
+            padding: 2rem 1rem 2rem 11rem;
+        }
+
+        @media (max-width: 350px) {
+            padding: 1rem 1rem 1rem 9rem;
+        }
+
+        p {
+            display: flex;
+            align-items: center;
+
+            font-size: 1rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        strong {
+            color: $base-color;
+            font-weight: 300;
+            font-size: 1.1rem;
+            letter-spacing: 0.1rem;
+            margin-right: .4rem;
+
+            @media (max-width: 500px) {
+                font-size: 1rem;
+            }
+        }
+
+        &--overview {
+            font-size: 1.08rem;
+            color: rgb(221, 219, 219);
+
+            & p:first-of-type {
+                margin-top: 1rem;
+                font-size: 1.2rem;
+                color: $base-color;
+            }
+        }
+    }
+
+    &__poster {
+        height: 100%;
+        grid-column: 2 / span 3;
+        grid-row: 3 / span 6;
+        object-fit: contain;
+        z-index: 1001;
+        border-radius: 1rem;
+
+        @media (max-width: 500px) {
+            grid-column: 2 / span 2;
+            grid-row: 4 / span 4;
+        }
+    }
+
+    &__title {
+        text-align: left !important;
+        align-self: center;
+        margin: 0;
+        color: #fff;
+
+        font-family: "SF-Movie";
+        font-size: 3.5rem;
+        letter-spacing: 0.8rem;
+
+        @media (max-width: 650px) {
+            font-size: 2.3rem;
+            letter-spacing: 5px;
+        }
+
+        @media (max-width: 500px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__star-rating {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.react-rater-star.is-active,
+.react-rater-star.is-active-half:before {
+    color: #fc6;
+}
+
+.react-rater-star {
+    font-size: 1.8rem;
+    color: #747171;
+    margin-top: -.3rem;
+
+    @media (max-width: 500px) {
+        font-size: 15px;
+    }
+}
+
+@keyframes animateBackdrop {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
