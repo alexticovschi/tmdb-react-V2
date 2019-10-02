@@ -32,10 +32,7 @@ const TVShowData = ({
           alt={"tvshow-data poster"}
         />
         <div className="tvshow-data__details">
-          <h1 className="tvshow-data__title">
-            {tvShow.original_title}
-            {/* <small>{movie.release_date}</small> */}
-          </h1>
+          <h1 className="tvshow-data__title">{tvShow.name}</h1>
 
           {list !== null ? (
             <div className="tvshow-data__details__genre">
