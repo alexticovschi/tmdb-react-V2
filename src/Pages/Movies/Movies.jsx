@@ -33,7 +33,7 @@ class Movies extends Component {
     const new_list = [...this.state.movies, ...movies.results];
     this.setState({ movies: new_list });
 
-    setTimeout(() => this.setState({ loading: false }), 500);
+    setTimeout(() => this.setState({ loading: false }), 150);
   };
 
   getMovieById = async ID => {

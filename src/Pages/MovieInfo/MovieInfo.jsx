@@ -77,7 +77,7 @@ class MovieInfo extends Component {
     const credits = await resp.json();
     this.setState({ credits: credits.cast });
 
-    setTimeout(() => this.setState({ loading: false }), 500);
+    setTimeout(() => this.setState({ loading: false }), 150);
   };
 
   getMovieRecommendations = async ID => {

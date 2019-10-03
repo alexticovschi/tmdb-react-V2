@@ -47,7 +47,7 @@ class MovieInfo extends Component {
     const tvShow = await resp.json();
     this.setState({ tvShow });
 
-    setTimeout(() => this.setState({ loading: false }), 500);
+    setTimeout(() => this.setState({ loading: false }), 150);
   };
 
   getTVShowCredits = async ID => {

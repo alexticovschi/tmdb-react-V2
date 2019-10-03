@@ -45,7 +45,7 @@ class Home extends Component {
       nowPlayingMovies: nowPlayingMovies.results
     });
 
-    setTimeout(() => this.setState({ loading: false }), 500);
+    setTimeout(() => this.setState({ loading: false }), 150);
   };
 
   getPopularMovies = async () => {

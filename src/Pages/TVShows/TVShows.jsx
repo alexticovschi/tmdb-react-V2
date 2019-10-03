@@ -32,7 +32,7 @@ class TVShows extends Component {
     const new_list = [...this.state.tvShows, ...tvShows.results];
     this.setState({ tvShows: new_list });
 
-    setTimeout(() => this.setState({ loading: false }), 500);
+    setTimeout(() => this.setState({ loading: false }), 150);
   };
 
   getTVShowById = async ID => {
