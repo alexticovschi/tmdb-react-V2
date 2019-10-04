@@ -15,7 +15,7 @@ const TVShowInfoBar = ({ creators, first_air_date }) => {
           <span className="tvshow-info-bar__info">
             {creators.length > 1 ? "Creators" : "Creator"}:
             {creators.map(creator => (
-                <Link to={`/creator/${creator.id}`} className="tvshow-info-bar__creator" key={creator.id}>{creator.name}</Link>
+                <Link to={`/person/${creator.id}`} className="tvshow-info-bar__creator" key={creator.id}>{creator.name}</Link>
             ))}
           </span>
         </div>

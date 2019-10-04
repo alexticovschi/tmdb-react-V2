@@ -8,6 +8,7 @@ import MovieInfo from "./Pages/MovieInfo/MovieInfo";
 import TVShows from "./Pages/TVShows/TVShows";
 import TVShowInfo from "./Pages/TVShowInfo/TVShowInfo";
 import Genres from "./Pages/Genres/Genres";
+import Person from "./Pages/Person/Person";
 
 import Footer from "./components/Footer/Footer";
 
@@ -44,6 +45,7 @@ class Routes extends Component {
           <Route exact path="/tv-show-info/:tv_show_id" component={TVShowInfo} />
           <Route exact path="/genres" component={Genres} />
           <Route exact path="/genres/:genre_id" component={Genres} />
+          <Route exact path="/person/:person_id" component={Person} />
 
           {/* <Route exact path="/movies/now-playing" component={Movies} />
           <Route exact path="/movies/popular" component={PopularMovies} />

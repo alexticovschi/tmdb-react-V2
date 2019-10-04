@@ -15,7 +15,7 @@ class SearchResults extends Component {
           return (
             <li key={index} onClick={this.handleClick} className="result">
               <Link
-                to={`/cast/actor-profile-info/${person.id}`}
+                to={`/person/${person.id}`}
                 onClick={() =>
                   this.props.history.push(
                     `/cast/actor-profile-info/${person.id}`

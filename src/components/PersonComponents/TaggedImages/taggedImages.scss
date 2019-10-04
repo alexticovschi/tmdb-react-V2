@@ -1,0 +1,110 @@
+.tagged-images {
+    grid-column: center-start / center-end;
+
+    padding: 2rem 0;
+    background-color: #fff;
+
+    @media (max-width: 1220px) {
+        grid-column: full-start / full-end;
+    }
+
+
+    /*************************
+    *** CSS Masonry Layout ***
+    **************************/
+
+    /* The Masonry Container */
+    .masonry {
+        padding: .5rem;
+        max-width: 1220px;
+        column-gap: 1em;
+        background-color: #fff;
+
+        grid-column: center-start / center-end;
+
+        /* The Masonry Brick */
+        &__item {
+            position: relative;
+            margin: 0 0 0.5em;
+
+            &--img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+    }
+
+
+
+    /* Masonry on large screens */
+    @media only screen and (min-width: 1024px) {
+        .masonry {
+            column-count: 4;
+        }
+    }
+
+    /* Masonry on medium-sized screens */
+    @media only screen and (max-width: 1023px) and (min-width: 768px) {
+        .masonry {
+            column-count: 3;
+        }
+    }
+
+    /* Masonry on small screens */
+    @media only screen and (max-width: 767px) and (min-width: 440px) {
+        .masonry {
+            column-count: 2;
+        }
+    }
+
+    @media only screen and (max-width: 440px) and (min-width: 319px) {
+        .masonry {
+            column-count: 2 !important;
+
+            margin: 0.2em auto;
+            column-gap: .4em;
+        }
+    }
+}
+
+
+.text-content {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    margin-bottom: 4px;
+    transition: opacity 800ms;
+    text-align: center;
+
+    .title {
+        padding-top: 16px;
+    }
+}
+
+.item:hover .text-content {
+    opacity: 1;
+}
+
+
+@media only screen and (max-width: 440px) and (min-width: 319px) {
+    .text-content {
+        height: 30px;
+        left: 0;
+        bottom: 0;
+        margin-bottom: 4px;
+        opacity: 0.8;
+
+        .title {
+            padding-top: 8px;
+            font-size: 14px;
+        }
+    }
+
+}
