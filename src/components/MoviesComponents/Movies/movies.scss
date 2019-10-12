@@ -6,12 +6,12 @@
         display: flex;
         flex-wrap: wrap;
 
-        padding: 2rem 0;
+        padding: 0;
         background-color: #fff;
-
-        @media screen and (max-width: 500px) {
-            padding: 2rem 0.3rem;
-        }
+        
+        // @media screen and (max-width: 500px) {
+        //     padding: 2rem 0.3rem;
+        // }
     }
 
     @media screen and (max-width: 1220px) {

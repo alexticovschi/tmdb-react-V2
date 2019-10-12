@@ -1,0 +1,16 @@
+$base-color: #74dfaf;
+
+.nav-btn {
+    color: rgb(27, 27, 27);
+    border: 2px solid $base-color;
+    padding: .4rem .5rem;
+    border-radius: .6rem;
+    transition: all .4s;
+    font-size: 1.1rem;
+    width: 8rem;
+    text-align: center;
+
+    &:hover {
+        background-color: #cef8e5;
+    }
+}

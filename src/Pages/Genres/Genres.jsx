@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MovieList from "../../components/Movies/Movies";
+import MovieList from "../../components/MoviesComponents/Movies/Movies";
 
 import Select from "react-select";
 import Loader from "react-loader-spinner";
@@ -116,6 +116,7 @@ class Genres extends Component {
                 />
               </div>
               <MovieList
+                displayNavButtons="false"
                 title="Genres"
                 movieList={this.state.genre}
                 getMovieById={this.getMovieById}

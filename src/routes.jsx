@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./Pages/Home/Home";
 import Movies from "./Pages/Movies/Movies";
 import MovieInfo from "./Pages/MovieInfo/MovieInfo";
+import TopRatedMovies from "./Pages/TopRatedMovies/TopRatedMovies";
+
 import TVShows from "./Pages/TVShows/TVShows";
 import TVShowInfo from "./Pages/TVShowInfo/TVShowInfo";
 import Genres from "./Pages/Genres/Genres";
@@ -41,6 +43,8 @@ class Routes extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/movies" component={Movies} />
           <Route exact path="/movie-info/:movie_id" component={MovieInfo} />
+          <Route exact path="/movies/top-rated" component={TopRatedMovies} />
+
           <Route exact path="/tv-shows" component={TVShows} />
           <Route exact path="/tv-show-info/:tv_show_id" component={TVShowInfo} />
           <Route exact path="/genres" component={Genres} />
