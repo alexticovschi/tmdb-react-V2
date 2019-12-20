@@ -1,20 +1,20 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from './components/Navbar/Navbar';
 
-import Home from "./Pages/Home/Home";
-import Movies from "./Pages/Movies/Movies";
-import MovieInfo from "./Pages/MovieInfo/MovieInfo";
-import TopRatedMovies from "./Pages/TopRatedMovies/TopRatedMovies";
-import PopularMovies from "./Pages/PopularMovies/PopularMovies";
-import NowPlayingMovies from "./Pages/NowPlayingMovies/NowPlayingMovies";
+import Home from './Pages/Home/Home';
+import Movies from './Pages/Movies/Movies';
+import MovieInfo from './Pages/MovieInfo/MovieInfo';
+import TopRatedMovies from './Pages/TopRatedMovies/TopRatedMovies';
+import PopularMovies from './Pages/PopularMovies/PopularMovies';
+import NowPlayingMovies from './Pages/NowPlayingMovies/NowPlayingMovies';
 
-import TVShows from "./Pages/TVShows/TVShows";
-import TVShowInfo from "./Pages/TVShowInfo/TVShowInfo";
-import Genres from "./Pages/Genres/Genres";
-import Person from "./Pages/Person/Person";
+import TVShows from './Pages/TVShows/TVShows';
+import TVShowInfo from './Pages/TVShowInfo/TVShowInfo';
+import Genres from './Pages/Genres/Genres';
+import Person from './Pages/Person/Person';
 
-import Footer from "./components/Footer/Footer";
+import Footer from './components/Footer/Footer';
 
 // import MovieInfo from "./containers/MovieInfo/MovieInfo";
 // import ActorProfileInfo from "./containers/ActorProfileInfo/ActorProfileInfo";
@@ -28,32 +28,40 @@ import Footer from "./components/Footer/Footer";
 // import NowPlayingMovies from "./containers/NowPlayingMovies/NowPlayingMovies";
 // import PopularMovies from "./containers/PopularMovies/PopularMovies";
 // import TopRatedMovies from "./containers/TopRatedMovies/TopRatedMovies";
-import MovieGenres from "./containers/MovieGenres/MovieGenres";
+import MovieGenres from './containers/MovieGenres/MovieGenres';
 
-import { Switch, Route } from "react-router-dom";
-import { withRouter } from "react-router-dom";
-import ScrollUpButton from "react-scroll-up-button";
+import { Switch, Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import ScrollUpButton from 'react-scroll-up-button';
 
-import "./routes.scss";
+import './routes.scss';
 
 class Routes extends Component {
   render() {
     return (
-      <div className="app">
+      <div className='app'>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/movies" component={Movies} />
-          <Route exact path="/movie-info/:movie_id" component={MovieInfo} />
-          <Route exact path="/movies/top-rated" component={TopRatedMovies} />
-          <Route exact path="/movies/popular" component={PopularMovies} />
-          <Route exact path="/movies/now-playing" component={NowPlayingMovies} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/movies' component={Movies} />
+          <Route exact path='/movie-info/:movie_id' component={MovieInfo} />
+          <Route exact path='/movies/top-rated' component={TopRatedMovies} />
+          <Route exact path='/movies/popular' component={PopularMovies} />
+          <Route
+            exact
+            path='/movies/now-playing'
+            component={NowPlayingMovies}
+          />
 
-          <Route exact path="/tv-shows" component={TVShows} />
-          <Route exact path="/tv-show-info/:tv_show_id" component={TVShowInfo} />
-          <Route exact path="/genres" component={Genres} />
-          <Route exact path="/genres/:genre_id" component={Genres} />
-          <Route exact path="/person/:person_id" component={Person} />
+          <Route exact path='/tv-shows' component={TVShows} />
+          <Route
+            exact
+            path='/tv-show-info/:tv_show_id'
+            component={TVShowInfo}
+          />
+          <Route exact path='/genres' component={Genres} />
+          <Route exact path='/genres/:genre_id' component={Genres} />
+          <Route exact path='/person/:person_id' component={Person} />
 
           {/* <Route exact path="/movies/now-playing" component={Movies} />
           <Route exact path="/movies/popular" component={PopularMovies} />
@@ -87,7 +95,7 @@ class Routes extends Component {
           /> */}
         </Switch>
 
-        <ScrollUpButton ContainerClassName="scroll-up-button" />
+        <ScrollUpButton ContainerClassName='scroll-up-button' />
 
         <Footer />
       </div>

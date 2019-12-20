@@ -1,34 +1,33 @@
-import React, { Component } from "react";
-import SearchResults from "./SearchResults";
-import search from "./search.svg";
-import "./SearchBoxWithSuggestions.scss";
-import Fade from "react-reveal/Fade";
+import React, { Component } from 'react';
+import SearchResults from './SearchResults';
+import search from './search.svg';
+import './SearchBoxWithSuggestions.scss';
 
-import { APIKEY } from "../../config";
+import { APIKEY } from '../../config';
 
 class SearchBoxWithSuggestions extends Component {
   state = {
     results: [],
-    keywords: ""
+    keywords: ''
   };
 
   onSubmit = e => e.preventDefault();
 
   onSearchChange = event => {
     this.setState({ keywords: event.target.value });
-    if (event.target.value === "")
-      document.getElementById("results").className = "noDisplay";
+    if (event.target.value === '')
+      document.getElementById('results').className = 'noDisplay';
   };
 
   clearSuggestions = () => {
-    document.getElementById("results").className = "noDisplay";
+    document.getElementById('results').className = 'noDisplay';
   };
 
   performSearch = async () => {
-    document.getElementById("results").className = "searchResults";
+    document.getElementById('results').className = 'searchResults';
     let val = this.state.keywords;
 
-    if (val === "") {
+    if (val === '') {
       this.clearSuggestions();
     }
 
@@ -37,7 +36,7 @@ class SearchBoxWithSuggestions extends Component {
     )
       .then(response => {
         if (response.status !== 200) {
-          console.log("Error: " + response.status);
+          console.log('Error: ' + response.status);
           return;
         }
 
@@ -48,34 +47,27 @@ class SearchBoxWithSuggestions extends Component {
       })
 
       .catch(err => {
-        console.log("Fetch Error :-S", err);
+        console.log('Fetch Error :-S', err);
       });
   };
 
   render() {
     return (
-      <div className="searchbox-container">
-        {/* <Fade> */}
-        <form onSubmit={this.onSubmit} id="form">
+      <div className='searchbox-container'>
+        <form onSubmit={this.onSubmit} id='form'>
           <input
-            type="text"
+            type='text'
             onKeyUp={this.performSearch}
             onChange={this.onSearchChange}
-            id="searchInput"
-            className="searchBar"
-            placeholder="Search a movie..."
+            id='searchInput'
+            className='searchBar'
+            placeholder='Search a movie...'
             required
           />
-          <button
-            onClick={this.clearSuggestions}
-            className="close-icon"
-            type="reset"
-          />
-          <img src={search} className="searchIcon" alt="" />
+          <img src={search} className='searchIcon' alt='' />
 
           <SearchResults results={this.state.results} />
         </form>
-        {/* </Fade> */}
       </div>
     );
   }

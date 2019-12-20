@@ -8,8 +8,8 @@
 
     .toolbar-wrapper {
         max-width: 1220px;
-
         margin: 0 auto;
+        height: 60px;
     }
 
     .toolbar__navigation {
@@ -20,7 +20,7 @@
 
 
     .toolbar__logo {
-        margin-top: 9px;
+        margin-top: 8px;
         margin-left: 0rem;
 
         a img {
@@ -80,6 +80,10 @@
                 margin-left: -5px !important;
             }
         }
+    }
+
+    .toolbar-wrapper {
+        height: 4rem;
     }
 
 }

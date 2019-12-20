@@ -3,7 +3,7 @@
     grid-template-rows: auto min-content;
     grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 9.5rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
 
-    margin-top: 3.46rem;
+    margin-top: 3.78rem;
 
     grid-column: center-start / center-end;
 }
