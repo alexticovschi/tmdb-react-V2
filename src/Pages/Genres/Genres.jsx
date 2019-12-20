@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import MovieList from "../../components/MoviesComponents/Movies/Movies";
+import React, { Component } from 'react';
+import MovieList from '../../components/MoviesComponents/Movies/Movies';
 
-import Select from "react-select";
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import "./genres.scss";
-import { APIKEY } from "../../config";
+import Select from 'react-select';
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import './genres.scss';
+import { APIKEY } from '../../config';
 
 class Genres extends Component {
   state = {
@@ -88,36 +88,36 @@ class Genres extends Component {
     });
 
     return (
-      <div className="genres-container">
+      <div className='genres-container'>
         {this.state.loading ? (
-          <div className="loader-container">
-            <Loader type="Oval" color="#fff" width={60} height={60} />
+          <div className='loader-container'>
+            <Loader type='Oval' color='#fff' width={60} height={60} />
           </div>
         ) : (
           <>
-            <div className="genres-container__inner">
-              <div className="genres-container__select">
+            <div className='genres-container__inner'>
+              <div className='genres-container__select'>
                 <Select
-                  className="select"
+                  className='select'
                   value={selectedOption}
                   onChange={this.handleChange}
                   options={options}
-                  placeholder={"Select a genre..."}
+                  placeholder={'Select a genre...'}
                   theme={theme => ({
                     ...theme,
                     borderRadius: 0,
                     colors: {
                       ...theme.colors,
-                      primary25: "#88d383",
-                      neutral20: "green",
-                      primary: "green"
+                      primary25: '#88d383',
+                      neutral20: 'green',
+                      primary: 'green'
                     }
                   })}
                 />
               </div>
               <MovieList
-                displayNavButtons="false"
-                title="Genres"
+                displayNavButtons='false'
+                title='Genres'
                 movieList={this.state.genre}
                 getMovieById={this.getMovieById}
               />
@@ -125,8 +125,8 @@ class Genres extends Component {
           </>
         )}
 
-        <div className="loadmore-container">
-          <button className="btn" onClick={this.loadMore}>
+        <div className='loadmore-container'>
+          <button className='btn' onClick={this.loadMore}>
             Load More
           </button>
         </div>

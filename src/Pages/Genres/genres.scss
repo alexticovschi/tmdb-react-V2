@@ -3,7 +3,7 @@
     grid-template-rows: minmax(64vh, min-content);
     grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 9.5rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
 
-    margin-top: 3.46rem;
+    margin-top: 4rem;
 
     &__inner {
         padding-top: 2.5rem;
@@ -12,6 +12,12 @@
 
         @media screen and (max-width: 1220px) {
             grid-column: full-start / full-end;
+        }
+    }
+
+    &__select {
+        @media screen and (max-width: 1200px) {
+            margin-bottom: 1.5rem;
         }
     }
 
