@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestionsPerson/SearchBoxWithSuggestions";
-import ProfileInfo from "../../components/PersonComponents/ProfileInfo/ProfileInfo";
-import Biography from "../../components/PersonComponents/Biography/Biography";
-import TaggedImages from "../../components/PersonComponents/TaggedImages/TaggedImages";
+import React, { Component } from 'react';
+import SearchBoxWithSuggestions from '../../components/SearchBoxWithSuggestionsPerson/SearchBoxWithSuggestions';
+import ProfileInfo from '../../components/PersonComponents/ProfileInfo/ProfileInfo';
+import Biography from '../../components/PersonComponents/Biography/Biography';
+import TaggedImages from '../../components/PersonComponents/TaggedImages/TaggedImages';
+import Filmography from '../../components/PersonComponents/Filmography/Filmography';
 
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
-import { APIKEY } from "../../config";
-import "./person.scss";
+import { APIKEY } from '../../config';
+import './person.scss';
 
 class Person extends Component {
   state = {
@@ -36,7 +37,7 @@ class Person extends Component {
 
   getPersonFilmographyData = async ID => {
     const resp = await fetch(
-      `https://api.themoviedb.org/3/person/${ID}/combined_credits?api_key=${APIKEY}&language=en-US`
+      `https://api.themoviedb.org/3/person/${ID}/movie_credits?api_key=${APIKEY}&language=en-US`
     );
     const personFilmographyData = await resp.json();
     this.setState({ personFilmographyData: personFilmographyData.cast });
@@ -50,17 +51,29 @@ class Person extends Component {
     this.setState({ personTaggedImages: personTaggedImages.results });
   };
 
-  render() {
-    const base_url = "https://image.tmdb.org/t/p/w500";
-    const base_url2 = "https://image.tmdb.org/t/p/original";
+  getMovieById = async ID => {
+    const resp = await fetch(
+      `https://api.themoviedb.org/3/movie/${ID}?&api_key=${APIKEY}&language=en-US`
+    );
+    const movie = await resp.json();
+    this.setState({ movie });
+  };
 
-    const { personProfileInfo, personTaggedImages, filmography } = this.state;
-    console.log(personProfileInfo)
+  render() {
+    const base_url = 'https://image.tmdb.org/t/p/w500';
+    const base_url2 = 'https://image.tmdb.org/t/p/original';
+
+    const {
+      personProfileInfo,
+      personTaggedImages,
+      personFilmographyData
+    } = this.state;
+    console.log(personFilmographyData);
     return (
-      <div className="person-container">
+      <div className='person-container'>
         {this.state.loading ? (
-          <div className="loader-container">
-            <Loader type="Oval" color="#fff" width={60} height={60} />
+          <div className='loader-container'>
+            <Loader type='Oval' color='#fff' width={60} height={60} />
           </div>
         ) : (
           <>
@@ -77,6 +90,14 @@ class Person extends Component {
                 taggedImages={personTaggedImages}
                 base_url={base_url}
                 base_url2={base_url2}
+              />
+            ) : null}
+
+            {personFilmographyData.length > 0 ? (
+              <Filmography
+                title='Filmography'
+                getMovieById={this.getMovieById}
+                movieList={personFilmographyData}
               />
             ) : null}
           </>
