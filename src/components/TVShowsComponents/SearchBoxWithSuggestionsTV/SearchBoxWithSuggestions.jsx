@@ -63,11 +63,6 @@ class SearchBoxWithSuggestions extends Component {
             placeholder='Search a tv show...'
             required
           />
-          <button
-            onClick={this.clearSuggestions}
-            className='close-icon'
-            type='reset'
-          />
           <img src={search} className='searchIcon' alt='' />
 
           <SearchResults results={this.state.results} />

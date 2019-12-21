@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import TVShowsList from "../../components/TVShowsComponents/TVShows/TVShows";
-import SearchBoxWithSuggestionsTV from "../../components/TVShowsComponents/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions";
+import React, { Component } from 'react';
+import TVShowsList from '../../components/TVShowsComponents/TVShows/TVShows';
+import SearchBoxWithSuggestionsTV from '../../components/TVShowsComponents/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions';
 
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { APIKEY } from "../../config";
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import { APIKEY } from '../../config';
 
-import "./tvshows.scss";
+import './tvshows.scss';
 
 class TVShows extends Component {
   state = {
@@ -47,23 +47,25 @@ class TVShows extends Component {
     const tvShows = this.state.tvShows;
 
     return (
-      <div className="tvshows-container">
+      <div className='tvshows-container'>
         {this.state.loading ? (
-          <div className="loader-container">
-            <Loader type="Oval" color="#fff" width={60} height={60} />
+          <div className='loader-container'>
+            <Loader type='Oval' color='#fff' width={60} height={60} />
           </div>
         ) : (
           <>
             <SearchBoxWithSuggestionsTV />
 
             <TVShowsList
+              displayNavButtons
+              title='TV Shows'
               tvShowList={tvShows}
               getTVShowById={this.getTVShowById}
             />
           </>
         )}
-        <div className="loadmore-container">
-          <button className="btn" onClick={this.getTVShows}>
+        <div className='loadmore-container'>
+          <button className='btn' onClick={this.getTVShows}>
             Load More
           </button>
         </div>
