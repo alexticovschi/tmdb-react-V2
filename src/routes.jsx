@@ -12,6 +12,7 @@ import NowPlayingMovies from './Pages/NowPlayingMovies/NowPlayingMovies';
 import TVShows from './Pages/TVShows/TVShows';
 import PopularTVShows from './Pages/PopularTVShows/PopularTVShows';
 import TopRatedTVShows from './Pages/TopRatedTVShows/TopRatedTVShows';
+import NowOnAirTVShows from './Pages/NowOnAirTVShows/NowOnAirTVShows';
 
 import TVShowInfo from './Pages/TVShowInfo/TVShowInfo';
 import Genres from './Pages/Genres/Genres';
@@ -56,7 +57,12 @@ class Routes extends Component {
             component={NowPlayingMovies}
           />
 
-          <Route exact path='/tv-shows' component={TVShows} />
+          <Route exact path='/tv-shows/airing-today' component={TVShows} />
+          <Route
+            exact
+            path='/tv-shows/now-on-the-air'
+            component={NowOnAirTVShows}
+          />
           <Route exact path='/tv-shows/popular' component={PopularTVShows} />
           <Route exact path='/tv-shows/top-rated' component={TopRatedTVShows} />
           <Route

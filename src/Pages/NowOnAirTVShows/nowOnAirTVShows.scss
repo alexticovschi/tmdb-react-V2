@@ -1,0 +1,21 @@
+.now-on-air-tv-shows-container {
+    display: grid;
+    grid-template-rows: auto min-content auto;
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 9.5rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+    margin-top: 3.78rem;
+
+    grid-column: center-start / center-end;
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        padding: 2rem 0;
+        background-color: #fff;
+
+        @media screen and (max-width: 500px) {
+            padding: 2rem 0.3rem;
+        }
+    }
+}

@@ -22,7 +22,7 @@ class TVShows extends Component {
 
   getTVShows = async ID => {
     const resp = await fetch(
-      `https://api.themoviedb.org/3/tv/top_rated?&api_key=${APIKEY}&sort_by=popularity.desc&language=en-US&page=${this.state.page}`
+      `https://api.themoviedb.org/3/tv/airing_today?&api_key=${APIKEY}&sort_by=popularity.desc&language=en-US&page=${this.state.page}`
     );
     const tvShows = await resp.json();
 
@@ -33,14 +33,6 @@ class TVShows extends Component {
     this.setState({ tvShows: new_list });
 
     setTimeout(() => this.setState({ loading: false }), 150);
-  };
-
-  getTVShowById = async ID => {
-    const resp = await fetch(
-      `https://api.themoviedb.org/3/tv/${ID}?&api_key=${APIKEY}&language=en-US`
-    );
-    const tvShow = await resp.json();
-    this.setState({ tvShow });
   };
 
   render() {
@@ -58,9 +50,8 @@ class TVShows extends Component {
 
             <TVShowsList
               displayNavButtons
-              title='TV Shows'
+              title='Airing Today TV Shows'
               tvShowList={tvShows}
-              getTVShowById={this.getTVShowById}
             />
           </>
         )}
