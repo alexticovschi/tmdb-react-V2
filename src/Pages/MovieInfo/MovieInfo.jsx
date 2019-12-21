@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
-import MovieData from "../../components/MovieInfoComponents/MovieData/MovieData";
-import MovieOverview from "../../components/MovieInfoComponents/MovieOverview/MovieOverview";
-import MovieInfoBar from "../../components/MovieInfoComponents/MovieInfoBar/MovieInfoBar";
-import MovieCredits from "../../components/MovieInfoComponents/MovieCredits/MovieCredits";
-import Recommendations from "../../components/Recommendations/Recommendations";
-import SimilarMovies from "../../components/MovieInfoComponents/SimilarMovies/SimilarMovies";
+import React, { Component } from 'react';
+import SearchBoxWithSuggestions from '../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions';
+import MovieData from '../../components/MovieInfoComponents/MovieData/MovieData';
+import MovieOverview from '../../components/MovieInfoComponents/MovieOverview/MovieOverview';
+import MovieInfoBar from '../../components/MovieInfoComponents/MovieInfoBar/MovieInfoBar';
+import MovieCredits from '../../components/MovieInfoComponents/MovieCredits/MovieCredits';
+import Recommendations from '../../components/Recommendations/Recommendations';
+import SimilarMovies from '../../components/MovieInfoComponents/SimilarMovies/SimilarMovies';
 
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
-import { APIKEY } from "../../config";
+import { APIKEY } from '../../config';
 
-import "./movieInfo.scss";
+import './movieInfo.scss';
 
 class MovieInfo extends Component {
   state = {
@@ -105,19 +105,15 @@ class MovieInfo extends Component {
       modalIsOpen,
       credits
     } = this.state;
-    const base_url = "https://image.tmdb.org/t/p/w500";
-    const base_url2 = "https://image.tmdb.org/t/p/w1400_and_h450_face";
-
-    console.log(movie.genres);
-
+    const base_url = 'https://image.tmdb.org/t/p/w500';
+    const base_url2 = 'https://image.tmdb.org/t/p/w1400_and_h450_face';
     const genres = movie.genres;
-    // let list = genres && genres.map(g => g.name + " ");
 
     return (
-      <div className="movie-info-container">
+      <div className='movie-info-container'>
         {this.state.loading ? (
-          <div className="loader-container">
-            <Loader type="Oval" color="#fff" width={60} height={60} />
+          <div className='loader-container'>
+            <Loader type='Oval' color='#fff' width={60} height={60} />
           </div>
         ) : (
           <>
@@ -138,15 +134,21 @@ class MovieInfo extends Component {
               revenue={movie.revenue}
             />
 
+            {credits.length > 0 ? <MovieCredits credits={credits} /> : null}
 
-            <MovieCredits credits={credits} />
+            {movieRecommendations.length > 0 ? (
+              <Recommendations
+                path='/movie-info'
+                recommendations={movieRecommendations}
+              />
+            ) : null}
 
-            <Recommendations path="/movie-info" recommendations={movieRecommendations}/>
-
-            <SimilarMovies
-              movieList={similarMovies}
-              getMovieById={this.getMovieById}
-            />
+            {similarMovies.length > 0 ? (
+              <SimilarMovies
+                movieList={similarMovies}
+                getMovieById={this.getMovieById}
+              />
+            ) : null}
           </>
         )}
       </div>
