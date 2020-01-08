@@ -79,11 +79,11 @@ class Person extends Component {
           <>
             <SearchBoxWithSuggestions />
 
-            <ProfileInfo person={personProfileInfo} base_url={base_url} />
+            <ProfileInfo person={personProfileInfo} biography={personProfileInfo.biography} base_url={base_url} />
 
-            {personProfileInfo.biography ? (
+            {/* {personProfileInfo.biography ? (
               <Biography biography={personProfileInfo.biography} />
-            ) : null}
+            ) : null} */}
 
             {personTaggedImages.length ? (
               <TaggedImages

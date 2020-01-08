@@ -1,35 +1,35 @@
 .biography {
-    grid-column: center-start / center-end;
+  grid-column: center-start / center-end;
 
-    background-color: rgb(241, 241, 241);
-    padding: 2rem 12rem 2rem 2rem;
+  background-color: rgb(241, 241, 241);
+  padding: 2rem 12rem 2rem 2rem;
 
-    &__title {
-        font-size: 1.6rem;
-        color: #333;
+  &__title {
+    font-size: 1.6rem;
+    color: #333;
+  }
+
+  &__anchor {
+    color: #3ab47d;
+    transition: .4s;
+
+    &:hover {
+      color: #0f8f55;
     }
+  }
 
-    &__anchor {
-        color: #3ab47d;
-        transition: .4s;
+  @media (max-width: 1220px) {
+    grid-column: full-start / full-end;
+    padding: 2rem;
+  }
 
-        &:hover {
-            color: #0f8f55;
-        }
-    }
+  @media (max-width: 500px) {
+    padding: 2rem 1.1rem;
+  }
 
-    @media (max-width: 1220px) {
-        grid-column: full-start / full-end;
-        padding: 2rem;
-    }
-
-    @media (max-width: 500px) {
-        padding: 2rem 1.1rem;
-    }
-
-    & span {
-        font-size: 1rem !important;
-        line-height: 1.6;
-    }
+  & span {
+    font-size: 1rem !important;
+    line-height: 1.6;
+  }
 
 }
