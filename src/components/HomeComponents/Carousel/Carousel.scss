@@ -1,6 +1,4 @@
 .carousel-container {
-    z-index: 10;
-    display: grid;
     grid-column: center-start / center-end;
     animation: animateCarousel 2s;
 
@@ -8,6 +6,11 @@
         grid-column: full-start / full-end;
     }
 }
+
+.control-arrow {
+    z-index: 10000000 !important;
+}
+
 
 .carousel-slider {
     background-color: rgb(207, 207, 207);
@@ -50,10 +53,6 @@
 
 
 @media (max-width: 765px) {
-    .control-dots {
-        display: none !important;
-    }
-
     .legend {
         margin-bottom: -20px;
         height: 54px;
@@ -65,7 +64,7 @@
             text-align: center !important;
         }
 
-        p {
+        .release-date {
             font-size: 0.8rem !important;
             text-align: center;
             margin: 0px;
