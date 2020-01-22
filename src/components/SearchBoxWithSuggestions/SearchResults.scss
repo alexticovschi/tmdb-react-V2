@@ -85,6 +85,8 @@ ul {
   width: 56px;
   margin-right: 20px;
   align-self: center;
+
+  animation: animateImg 1s;
 }
 
 
@@ -115,5 +117,15 @@ li.result:last-of-type {
     width: 66px !important;
     margin-right: 14px !important;
     align-self: center;
+  }
+}
+
+@keyframes animateImg {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
