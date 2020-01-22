@@ -2,7 +2,7 @@
     z-index: 10;
     display: grid;
     grid-column: center-start / center-end;
-    animation: animateCarousel 1.5s;
+    animation: animateCarousel 2s;
 
     @media screen and (max-width: 1220px) {
         grid-column: full-start / full-end;
