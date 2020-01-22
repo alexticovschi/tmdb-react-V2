@@ -1,17 +1,18 @@
-import React, { Component } from "react";
-import SearchBoxWithSuggestions from "../../components/TVShowsComponents/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions";
-import TVShowData from "../../components/TVShowInfoComponents/TVShowData/TVShowData";
-import TVShowOverview from "../../components/MovieInfoComponents/MovieOverview/MovieOverview";
-import TVShowCredits from "../../components/MovieInfoComponents/MovieCredits/MovieCredits";
-import TVShowInfoBar from "../../components/TVShowInfoComponents/TVShowInfoBar/TVShowInfoBar";
-import Recommendations from "../../components/Recommendations/Recommendations";
+import React, { Component } from 'react';
+import SearchBoxWithSuggestions from '../../components/TVShowsComponents/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions';
+import TVShowData from '../../components/TVShowInfoComponents/TVShowData/TVShowData';
+import TVShowOverview from '../../components/MovieInfoComponents/MovieOverview/MovieOverview';
+import TVShowCredits from '../../components/MovieInfoComponents/MovieCredits/MovieCredits';
+import TVShowInfoBar from '../../components/TVShowInfoComponents/TVShowInfoBar/TVShowInfoBar';
+import Recommendations from '../../components/Recommendations/Recommendations';
+import SimilarTVShows from '../../components/TVShowInfoComponents/SimilarTVShows/SimilarTVShows';
 
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
-import { APIKEY } from "../../config";
+import { APIKEY } from '../../config';
 
-import "./tvShowInfo.scss";
+import './tvShowInfo.scss';
 
 class MovieInfo extends Component {
   state = {
@@ -84,18 +85,16 @@ class MovieInfo extends Component {
 
     const creators = tvShow.created_by;
 
-    const base_url = "https://image.tmdb.org/t/p/w500";
-    const base_url2 = "https://image.tmdb.org/t/p/w1400_and_h450_face";
-
-    console.log(tvShow);
+    const base_url = 'https://image.tmdb.org/t/p/w500';
+    const base_url2 = 'https://image.tmdb.org/t/p/w1400_and_h450_face';
 
     const genres = tvShow.genres;
 
     return (
-      <div className="tvshow-info-container">
+      <div className='tvshow-info-container'>
         {this.state.loading ? (
-          <div className="loader-container">
-            <Loader type="Oval" color="#fff" width={60} height={60} />
+          <div className='loader-container'>
+            <Loader type='Oval' color='#fff' width={60} height={60} />
           </div>
         ) : (
           <>
@@ -108,15 +107,31 @@ class MovieInfo extends Component {
               tvShow={tvShow}
               list={genres}
             />
-            
 
             <TVShowOverview overview={tvShow.overview} />
 
-            <TVShowInfoBar creators={creators} first_air_date={tvShow.first_air_date}/>
+            <TVShowInfoBar
+              creators={creators}
+              first_air_date={tvShow.first_air_date}
+            />
 
-            <TVShowCredits credits={tvShowCredits} />
+            {tvShowCredits.length > 0 ? (
+              <TVShowCredits credits={tvShowCredits} />
+            ) : null}
 
-            <Recommendations path="/tv-show-info" recommendations={tvShowRecommendations}/>
+            {tvShowRecommendations.length > 0 ? (
+              <Recommendations
+                path='/tv-show-info'
+                recommendations={tvShowRecommendations}
+              />
+            ) : null}
+
+            {similarTVShows.length > 0 ? (
+              <SimilarTVShows
+                movieList={similarTVShows}
+                getMovieById={this.getMovieById}
+              />
+            ) : null}
           </>
         )}
       </div>
