@@ -1,5 +1,4 @@
 import React from 'react';
-import Biography from '../Biography/Biography';
 import './profileInfo.scss';
 import ShowMore from 'react-show-more';
 

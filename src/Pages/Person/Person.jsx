@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SearchBoxWithSuggestions from '../../components/SearchBoxWithSuggestionsPerson/SearchBoxWithSuggestions';
 import ProfileInfo from '../../components/PersonComponents/ProfileInfo/ProfileInfo';
-import Biography from '../../components/PersonComponents/Biography/Biography';
 import TaggedImages from '../../components/PersonComponents/TaggedImages/TaggedImages';
 import Filmography from '../../components/PersonComponents/Filmography/Filmography';
 

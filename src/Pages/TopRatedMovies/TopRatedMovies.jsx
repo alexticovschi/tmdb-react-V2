@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SearchBoxWithSuggestions from '../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions';
 import MovieList from '../../components/MoviesComponents/Movies/Movies';
-import Button from '../../components/Button/Button';
 
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
