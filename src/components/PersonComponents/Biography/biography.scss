@@ -1,20 +1,20 @@
 .biography {
   grid-column: center-start / center-end;
 
-  background-color: rgb(241, 241, 241);
+  background-color: var(--mainWhite);
   padding: 2rem 12rem 2rem 2rem;
 
   &__title {
     font-size: 1.6rem;
-    color: #333;
+    color: var(--darkGrey);
   }
 
   &__anchor {
-    color: #3ab47d;
-    transition: .4s;
+    color: var(--lightGreen2);
+    transition: 0.4s;
 
     &:hover {
-      color: #0f8f55;
+      color: var(--darkGreen);
     }
   }
 
@@ -31,5 +31,4 @@
     font-size: 1rem !important;
     line-height: 1.6;
   }
-
 }

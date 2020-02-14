@@ -1,6 +1,6 @@
 .searchbox-container {
   display: flex;
-  background-color: #fff;
+  background-color: var(--mainWhite);
   width: 100%;
   margin: auto;
 
@@ -13,7 +13,6 @@
 
   @media screen and (max-width: 1200px) {
     margin-top: 1.2rem;
-
   }
 
   #form {
@@ -34,7 +33,7 @@
     transition: all 0.35s ease-out;
     margin: 0;
 
-    &:not(:valid)~.close-icon {
+    &:not(:valid) ~ .close-icon {
       display: none;
     }
   }
@@ -65,7 +64,7 @@
   color: rgb(79, 163, 142);
 }
 
-@media (max-width:465px) {
+@media (max-width: 465px) {
   .searchBar {
     padding: 11px 14px 10px 38px !important;
     font-size: 14px !important;

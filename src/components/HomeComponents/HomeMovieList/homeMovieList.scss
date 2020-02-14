@@ -7,7 +7,7 @@
         flex-wrap: wrap;
 
         padding: 2rem 0;
-        background-color: #fff;
+        background-color: var(--mainWhite);
 
         @media screen and (max-width: 500px) {
             padding: 2rem 0.3rem;

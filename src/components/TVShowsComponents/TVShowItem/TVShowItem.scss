@@ -1,129 +1,122 @@
 @font-face {
-	font-family: "SF-Movie";
-	src: url("../../../sf-movie-poster.regular.ttf");
+  font-family: 'SF-Movie';
+  src: url('../../../sf-movie-poster.regular.ttf');
 }
 
 .card {
-	display: flex;
-	justify-content: space-around !important;
-	transition: .5s !important;
+  display: flex;
+  justify-content: space-around !important;
+  transition: 0.5s !important;
 
-	&__img {
-		width: 100%;
-	}
+  &__img {
+    width: 100%;
+  }
 }
 
 .card {
-	margin: 15px auto;
-	border-radius: 4px;
-	background-color: white;
-	box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10);
-	transition: 0.6s;
+  margin: 15px auto;
+  border-radius: 4px;
+  background-color: var(--mainWhite);
+  box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.6s;
 }
 
 .card:hover {
-	box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 1), 0 4px 10px 0 rgba(0, 0, 0, 0.10);
-	filter: brightness(130%);
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 1), 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  filter: brightness(130%);
 }
 
 .card img {
-	border-radius: 4px;
-	height: 100%;
+  border-radius: 4px;
+  height: 100%;
 }
 
 .frame {
-	text-align: center;
-	position: relative;
-	cursor: pointer;
-	perspective: 500px;
-	// height: 100%;
-	min-height: 336px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  perspective: 500px;
+  min-height: 336px;
 
-	& .details {
-		width: 96%;
-		height: 44%;
-		padding: 2% 1%;
-		position: absolute;
-		top: 77%;
-		left: 50%;
-		transform: translate(-50%, -50%) rotateY(90deg);
-		transform-origin: 50%;
-		background: rgba(44, 146, 95, 0.96);
-		background: rgba(4, 15, 9, 0.92);
-		opacity: 0;
-		transition: all 0.3s ease-in;
-		-webkit-filter: blur(0.000001px);
-		-webkit-font-smoothing: antialiased;
+  & .details {
+    width: 96%;
+    height: 44%;
+    padding: 2% 1%;
+    position: absolute;
+    top: 77%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(90deg);
+    transform-origin: 50%;
+    background: rgba(44, 146, 95, 0.96);
+    background: rgba(4, 15, 9, 0.92);
+    opacity: 0;
+    transition: all 0.3s ease-in;
 
-		& .card-title {
-			color: #ffffff;
-		}
+    & .card-title {
+      color: var(--mainWhite);
+    }
 
-		& h2.card-title {
-			font-size: 28px;
-			letter-spacing: 3px;
-			font-weight: 300 !important;
-			font-family: 'SF-Movie';
-			margin-bottom: 4px;
-		}
+    & h2.card-title {
+      font-size: 28px;
+      letter-spacing: 3px;
+      font-weight: 300 !important;
+      font-family: 'SF-Movie';
+      margin-bottom: 4px;
+    }
 
-		& h3.card-title {
-			font-size: 14.5px;
-		}
-	}
+    & h3.card-title {
+      font-size: 14.5px;
+    }
+  }
 
-	&:hover .details {
-		transform: translate(-50%, -50%) rotateY(0deg);
-		opacity: 1;
-	}
+  &:hover .details {
+    transform: translate(-50%, -50%) rotateY(0deg);
+    opacity: 1;
+  }
 }
-
 
 @media screen and (min-width: 800px) {
-	.card {
-		flex: 0 1 calc(18.8%);
-		min-height: 35vh !important;
-	}
+  .card {
+    flex: 0 1 calc(18.8%);
+    min-height: 35vh !important;
+  }
 }
 
-
 @media screen and (max-width: 1325px) {
-	.card {
-		flex: 0 1 calc(24.9% - .5rem);
-	}
+  .card {
+    flex: 0 1 calc(24.9% - 0.5rem);
+  }
 }
 
 @media screen and (max-width: 1125px) {
-	.card {
-		flex: 0 1 calc(22% - 0.5rem);
-	}
+  .card {
+    flex: 0 1 calc(22% - 0.5rem);
+  }
 }
 
-
 @media screen and (max-width: 855px) {
-	.card {
-		flex: 0 1 calc(30% - 0.5rem);
-	}
+  .card {
+    flex: 0 1 calc(30% - 0.5rem);
+  }
 }
 
 @media screen and (max-width: 455px) {
-	.card {
-		flex: 0 1 calc(33% - 0.8rem);
-	}
+  .card {
+    flex: 0 1 calc(33% - 0.8rem);
+  }
 
-	.scroll-up-button {
-		width: 44px !important;
-		height: 40px !important;
-	}
+  .scroll-up-button {
+    width: 44px !important;
+    height: 40px !important;
+  }
 }
 
-
 @media (max-width: 675px) {
-	.details {
-		display: none;
-	}
+  .details {
+    display: none;
+  }
 
-	.frame {
-		min-height: 5vh;
-	}
+  .frame {
+    min-height: 5vh;
+  }
 }

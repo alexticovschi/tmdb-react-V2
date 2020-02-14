@@ -1,31 +1,24 @@
-$base-color: #74dfaf;
-
 .movie-overview {
-    grid-column: center-start / center-end;
-    background-color: #fff;
-    padding: 2rem 6rem;
+  grid-column: center-start / center-end;
+  background-color: var(--mainWhite);
+  padding: 2rem 6rem;
 
-    border-top: .1rem solid rgb(185, 185, 185);
-    border-bottom: .1rem solid rgb(185, 185, 185);
+  h1 {
+    font-size: 1.8rem;
+    color: #333;
+  }
 
-    h1 {
-        font-size: 1.8rem;
-        color: #333;
+  &__text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+
+    @media (max-width: 500px) {
+      font-size: 1rem;
     }
+  }
 
-    &__text {
-        font-size: 1.1rem;
-        line-height: 1.6;
-
-        @media (max-width: 500px) {
-            font-size: 1rem;
-        }
-    }
-
-    @media (max-width: 1220px) {
-        grid-column: full-start / full-end;
-        padding: 2rem;
-    }
-
-
+  @media (max-width: 1220px) {
+    grid-column: full-start / full-end;
+    padding: 2rem;
+  }
 }

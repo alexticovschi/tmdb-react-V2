@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 
     padding: 0;
-    background-color: #fff;
+    background-color: var(--mainWhite);
 
     @media screen and (max-width: 500px) {
       padding: 0 0.3rem;
@@ -33,7 +33,7 @@
 
   @media screen and (max-width: 1125px) {
     .card {
-      flex: 0 1 calc(21% - .4rem);
+      flex: 0 1 calc(21% - 0.4rem);
     }
   }
 
@@ -53,5 +53,4 @@
       height: 40px !important;
     }
   }
-
 }

@@ -1,5 +1,3 @@
-$base-color: #74dfaf;
-
 .button {
   display: inline-block;
   margin-right: 10px;
@@ -11,11 +9,11 @@ $base-color: #74dfaf;
   padding: 12px 18px;
   text-align: center;
   color: rgb(75, 74, 74);
-  border: solid 2px $base-color;
+  border: solid 2px var(--primaryColor);
   cursor: pointer;
 
   &:hover {
-    background: $base-color;
+    background: var(--primaryColor);
   }
 }
 
@@ -25,7 +23,7 @@ $base-color: #74dfaf;
   }
 
   .button.movies:hover {
-    background-color: $base-color;
+    background-color: var(--primaryColor);
   }
 }
 

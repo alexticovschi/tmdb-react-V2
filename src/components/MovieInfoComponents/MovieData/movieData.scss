@@ -1,6 +1,3 @@
-/* COLOR VARIABLES */
-$base-color: #74dfaf;
-
 .movie-data {
     grid-column: center-start / center-end;
 
@@ -56,7 +53,7 @@ $base-color: #74dfaf;
         z-index: 1000;
         border-radius: 1rem;
 
-        border: 2px solid $base-color;
+        border: 2px solid var(--primaryColor);
 
         display: grid;
 
@@ -75,7 +72,7 @@ $base-color: #74dfaf;
 
         &__genre-item {
             color: #fff;
-            border: 1px solid $base-color;
+            border: 1px solid var(--primaryColor);
             padding: .3rem .5rem;
             border-radius: .6rem;
             margin-right: .5rem;
@@ -88,7 +85,7 @@ $base-color: #74dfaf;
             }
 
             &:hover {
-                color: $base-color;
+                color: var(--primaryColor);
             }
         }
 
@@ -128,7 +125,7 @@ $base-color: #74dfaf;
         }
 
         strong {
-            color: $base-color;
+            color: var(--primaryColor);
             font-weight: 300;
             font-size: 1.1rem;
             letter-spacing: 0.1rem;
@@ -146,7 +143,7 @@ $base-color: #74dfaf;
             & p:first-of-type {
                 margin-top: 1rem;
                 font-size: 1.2rem;
-                color: $base-color;
+                color: var(--primaryColor);
             }
         }
     }

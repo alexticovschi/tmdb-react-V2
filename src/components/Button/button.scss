@@ -1,8 +1,6 @@
-$base-color: #74dfaf;
-
 .nav-btn {
     color: rgb(27, 27, 27);
-    border: 2px solid $base-color;
+    border: 2px solid var(--primaryColor);
     padding: .4rem .5rem;
     border-radius: .6rem;
     transition: all .4s;
@@ -11,6 +9,6 @@ $base-color: #74dfaf;
     text-align: center;
 
     &:hover {
-        background-color: #cef8e5;
+        background-color: var(--lightGreen);
     }
 }
