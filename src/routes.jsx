@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
-import Navbar from './components/Navbar/Navbar';
-
+import Layout from './components/Layout/Layout';
 import Home from './Pages/Home/Home';
 import Movies from './Pages/Movies/Movies';
 import MovieInfo from './Pages/MovieInfo/MovieInfo';
@@ -18,19 +16,14 @@ import TVShowInfo from './Pages/TVShowInfo/TVShowInfo';
 import Genres from './Pages/Genres/Genres';
 import Person from './Pages/Person/Person';
 
-import Footer from './components/Footer/Footer';
-
 import { Switch, Route } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import ScrollUpButton from 'react-scroll-up-button';
 
-import './routes.scss';
-
 class Routes extends Component {
   render() {
     return (
-      <div className='app'>
-        <Navbar />
+      <Layout>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/movies' component={Movies} />
@@ -62,9 +55,7 @@ class Routes extends Component {
         </Switch>
 
         <ScrollUpButton ContainerClassName='scroll-up-button' />
-
-        <Footer />
-      </div>
+      </Layout>
     );
   }
 }
