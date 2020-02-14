@@ -1,5 +1,4 @@
 .movie-info-container {
-  //   display: grid;
   grid-template-rows: auto auto min-content min-content repeat(3, min-content);
   grid-template-columns:
     [full-start] minmax(6rem, 1fr) [center-start] repeat(
