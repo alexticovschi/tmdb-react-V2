@@ -12,28 +12,28 @@ const SideDrawer = props => {
     <nav className={drawerClasses}>
       <ul>
         <li>
-          <a className='btn ripple' href='/'>
+          <a className='btn' href='/'>
             Home
           </a>
         </li>
         <li>
-          <a className='btn ripple' href='/movies'>
+          <a className='btn' href='/movies'>
             Movies
           </a>
         </li>
         <li>
-          <a className='btn ripple' href='/tv-shows/airing-today'>
+          <a className='btn' href='/tv-shows/airing-today'>
             TV Shows
           </a>
         </li>
         <li>
-          <a className='btn ripple' href='/genres/80'>
+          <a className='btn' href='/genres/80'>
             Genres
           </a>
         </li>
         <li>
           <a
-            className='btn ripple'
+            className='btn'
             href='https://www.themoviedb.org/login?language=en-US'
           >
             Login
