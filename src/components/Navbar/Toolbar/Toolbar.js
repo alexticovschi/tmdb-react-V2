@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
+// import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
+import ToggleButton from '../SideDrawer/ToggleButton';
+
 import './Toolbar.scss';
 
-const Toolbar = props => (
+const Toolbar = ({ isOpen, drawerClickHandler }) => (
   <header className='toolbar'>
     <div className='toolbar-wrapper'>
       <nav className='toolbar__navigation'>
@@ -38,12 +40,7 @@ const Toolbar = props => (
             </li>
           </ul>
         </div>
-        <div className='toolbar__toggle-button'>
-          <DrawerToggleButton
-            isOpen={props.isOpen}
-            click={props.drawerClickHandler}
-          />
-        </div>
+        <ToggleButton isOpen={isOpen} click={drawerClickHandler} />
       </nav>
     </div>
   </header>
