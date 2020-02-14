@@ -1,5 +1,5 @@
 .side-drawer {
-  height: 100vh;
+  height: 100%;
   background: var(--primaryColor);
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -28,7 +28,6 @@
   }
 
   ul {
-    margin-top: 26px;
     height: 100%;
     list-style: none;
 
