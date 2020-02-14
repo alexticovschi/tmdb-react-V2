@@ -1,37 +1,46 @@
 .genres-container {
-    display: grid;
-    grid-template-rows: minmax(64vh, min-content);
-    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 9.5rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+  display: grid;
+  grid-template-rows: minmax(64vh, min-content);
+  grid-template-columns:
+    [full-start] minmax(6rem, 1fr) [center-start] repeat(
+      8,
+      [col-start] minmax(min-content, 9.5rem) [col-end]
+    )
+    [center-end] minmax(6rem, 1fr) [full-end];
 
-    margin-top: 3.78rem;
+  margin-top: 3.78rem;
 
-    &__inner {
-        padding-top: 2.5rem;
-        grid-column: center-start / center-end;
-        background-color: #fff;
+  &__inner {
+    padding-top: 2.5rem;
+    grid-column: center-start / center-end;
+    background-color: #fff;
 
-        @media screen and (max-width: 1220px) {
-            grid-column: full-start / full-end;
-        }
+    @media screen and (max-width: 1220px) {
+      grid-column: full-start / full-end;
     }
+  }
 
-    &__select {
-        margin-bottom: .6rem;
+  &__select {
+    margin-bottom: 0.6rem;
 
-        @media screen and (max-width: 1200px) {
-            margin-bottom: 1.5rem;
-        }
+    @media screen and (max-width: 1200px) {
+      margin-bottom: 1.5rem;
     }
+  }
 
-    &__title {
-        text-align: center;
-    }
+  &__title {
+    text-align: center;
+  }
 }
 
 .select {
-    text-align: left;
-    width: 40%;
-    margin: 0 auto;
+  text-align: left;
+  width: 40%;
+  margin: 0 auto;
 
-    font-size: 1rem;
+  font-size: 1rem;
+
+  @media screen and (max-width: 475px) {
+    width: 60%;
+  }
 }
