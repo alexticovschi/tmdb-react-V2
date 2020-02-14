@@ -136,12 +136,12 @@ class MovieInfo extends Component {
 
             {credits.length > 0 ? <MovieCredits credits={credits} /> : null}
 
-            {movieRecommendations.length > 0 ? (
+            {/* {movieRecommendations.length > 0 ? (
               <Recommendations
                 path='/movie-info'
                 recommendations={movieRecommendations}
               />
-            ) : null}
+            ) : null} */}
 
             {similarMovies.length > 0 ? (
               <SimilarMovies
