@@ -1,56 +1,57 @@
 .actor-card {
-    &__name {
-        text-align: center !important;
-        font-size: 14px;
-        color: rgb(68, 67, 67);
-        margin-top: 4px;
-        margin-bottom: 16px;
+  &__name {
+    text-align: center !important;
+    font-size: 14px;
+    color: rgb(68, 67, 67);
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+
+  &__img-wrapper {
+    display: inline-block;
+    overflow: hidden !important;
+
+    &__img {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      width: 100%;
+      max-height: 281px;
+      min-height: 256px;
+      transition: 0.6s;
+      opacity: 0.8;
+      transition: all 0.5s ease;
+      display: block !important;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.2);
+      }
     }
-
-    &__img-wrapper {
-        display: inline-block;
-        overflow: hidden !important;
-
-        &__img {
-            border-top-left-radius: 2px;
-            border-top-right-radius: 2px;
-            width: 100%;
-            max-height: 281px;
-            transition: 0.6s;
-            opacity: 0.8;
-            transition: all .5s ease;
-            display: block !important;
-
-            &:hover {
-                opacity: 1;
-                transform: scale(1.2);
-            }
-        }
-    }
+  }
 }
 
 @media screen and (min-width: 800px) {
-    .actor-card {
-        flex: 0 1 calc(19.99% - 4rem);
-    }
+  .actor-card {
+    flex: 0 1 calc(19.99% - 4rem);
+  }
 }
 
-@media (max-width:475px) {
-    .actor-card {
-        &__name {
-            font-size: 13px;
-            text-align: center;
-        }
-
-        &__img-wrapper__img {
-            min-height: 136px;
-            min-width: 91px;
-        }
+@media (max-width: 475px) {
+  .actor-card {
+    &__name {
+      font-size: 13px;
+      text-align: center;
     }
+
+    &__img-wrapper__img {
+      min-height: 136px;
+      min-width: 91px;
+    }
+  }
 }
 
 @media screen and (max-width: 800px) {
-    .actor-card {
-        flex: 0 1 calc(23% - 0.5rem);
-    }
+  .actor-card {
+    flex: 0 1 calc(23% - 0.5rem);
+  }
 }
