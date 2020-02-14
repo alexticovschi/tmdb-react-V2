@@ -1,4 +1,5 @@
 .tvshow-info-container {
+  display: grid;
   grid-template-rows: auto min-content repeat(3, min-content) min-content;
   grid-template-columns:
     [full-start] minmax(6rem, 1fr) [center-start] repeat(
@@ -7,5 +8,5 @@
     )
     [center-end] minmax(6rem, 1fr) [full-end];
 
-  margin-top: 5rem;
+  margin-top: 3.78rem;
 }
