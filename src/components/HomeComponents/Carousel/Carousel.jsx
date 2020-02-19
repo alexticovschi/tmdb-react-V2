@@ -6,7 +6,8 @@ import './Carousel.scss';
 import { Link } from 'react-router-dom';
 
 export default ({ movies }) => {
-  const base_url = 'https://image.tmdb.org/t/p/original';
+  // const base_url = 'https://image.tmdb.org/t/p/w780';
+  const base_url = 'https://image.tmdb.org/t/p/w1280';
   return (
     <div className='carousel-container'>
       <Carousel
