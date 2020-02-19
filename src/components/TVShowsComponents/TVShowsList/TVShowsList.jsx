@@ -1,11 +1,10 @@
-import React from "react";
-import TVShowItem from "../TVShowItem/TVShowItem";
+import React from 'react';
+import TVShowItem from '../TVShowItem/TVShowItem';
 
 const TVShowsList = ({ tvShowList, getTVShowById }) => {
-  console.log(tvShowList);
-  const base_url = "https://image.tmdb.org/t/p/w342";
+  const base_url = 'https://image.tmdb.org/t/p/w342';
   const not_available_poster =
-    "https://dummyimage.com/243x350/7b8a91/ffffff&text=Poster+Not+Available";
+    'https://dummyimage.com/243x350/7b8a91/ffffff&text=Poster+Not+Available';
   const tv_shows_list =
     tvShowList &&
     tvShowList.map((tvShow, idx) => (

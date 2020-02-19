@@ -37,7 +37,11 @@ const ProfileInfo = ({ person, base_url, biography }) => {
           {person.homepage ? (
             <p className='profile-info__person__fact'>
               <span>Official Site: </span>
-              <a href={person.homepage} target='_blank'>
+              <a
+                href={person.homepage}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 {person.homepage}
               </a>
             </p>

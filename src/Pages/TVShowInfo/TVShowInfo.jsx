@@ -118,13 +118,13 @@ class MovieInfo extends Component {
             {tvShowCredits.length > 0 ? (
               <TVShowCredits credits={tvShowCredits} />
             ) : null}
-            {/* 
+
             {tvShowRecommendations.length > 0 ? (
               <Recommendations
                 path='/tv-show-info'
                 recommendations={tvShowRecommendations}
               />
-            ) : null} */}
+            ) : null}
 
             {similarTVShows.length > 0 ? (
               <SimilarTVShows

@@ -7,7 +7,6 @@ import MovieList from '../../MovieList/MovieList';
 import './movies.scss';
 
 const Movies = ({ movieList, getMovieById, title, displayNavButtons }) => {
-  console.log(displayNavButtons);
   return (
     <section className='movie-list'>
       <div className='movie-list__wrapper'>

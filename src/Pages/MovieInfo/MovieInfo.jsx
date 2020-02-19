@@ -97,14 +97,7 @@ class MovieInfo extends Component {
   };
 
   render() {
-    const {
-      movie,
-      movieRecommendations,
-      similarMovies,
-      trailers,
-      modalIsOpen,
-      credits
-    } = this.state;
+    const { movie, movieRecommendations, similarMovies, credits } = this.state;
     const base_url = 'https://image.tmdb.org/t/p/w500';
     const base_url2 = 'https://image.tmdb.org/t/p/w1400_and_h450_face';
     const genres = movie.genres;
@@ -136,12 +129,12 @@ class MovieInfo extends Component {
 
             {credits.length > 0 ? <MovieCredits credits={credits} /> : null}
 
-            {/* {movieRecommendations.length > 0 ? (
+            {movieRecommendations.length > 0 ? (
               <Recommendations
                 path='/movie-info'
                 recommendations={movieRecommendations}
               />
-            ) : null} */}
+            ) : null}
 
             {similarMovies.length > 0 ? (
               <SimilarMovies
