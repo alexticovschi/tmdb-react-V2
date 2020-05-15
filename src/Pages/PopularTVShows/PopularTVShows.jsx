@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchBoxWithSuggestions from '../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions';
+import SearchBoxWithSuggestionsTV from '../../components/TVShowsComponents/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions';
 import TVShowsList from '../../components/TVShowsComponents/TVShows/TVShows';
 
 import Loader from 'react-loader-spinner';
@@ -13,7 +13,7 @@ class PopularTVShows extends Component {
     loading: true,
     popularTVShows: [],
     total_pages: 0,
-    page: 2
+    page: 2,
   };
 
   componentDidMount() {
@@ -32,7 +32,9 @@ class PopularTVShows extends Component {
 
   loadMore = async () => {
     const resp = await fetch(
-      `https://api.themoviedb.org/3/tv/popular?api_key=${APIKEY}&language=en-US&page=${this.state.page}`
+      `https://api.themoviedb.org/3/tv/popular?api_key=${APIKEY}&language=en-US&page=${
+        this.state.page
+      }`
     );
     const tvshows = await resp.json();
 
@@ -45,24 +47,24 @@ class PopularTVShows extends Component {
 
   render() {
     return (
-      <section className='popular-tv-shows-container'>
+      <section className="popular-tv-shows-container">
         {this.state.loading ? (
-          <div className='loader-container'>
-            <Loader type='Oval' color='#fff' width={60} height={60} />
+          <div className="loader-container">
+            <Loader type="Oval" color="#fff" width={60} height={60} />
           </div>
         ) : (
           <>
-            <SearchBoxWithSuggestions />
+            <SearchBoxWithSuggestionsTV />
 
             <TVShowsList
               displayNavButtons
-              title='Popular TV Shows'
+              title="Popular TV Shows"
               tvShowList={this.state.popularTVShows}
             />
           </>
         )}
-        <div className='loadmore-container'>
-          <button className='btn' onClick={this.loadMore}>
+        <div className="loadmore-container">
+          <button className="btn" onClick={this.loadMore}>
             Load More
           </button>
         </div>

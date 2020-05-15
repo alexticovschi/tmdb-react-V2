@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchBoxWithSuggestions from '../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions';
+import SearchBoxWithSuggestionsTV from '../../components/TVShowsComponents/SearchBoxWithSuggestionsTV/SearchBoxWithSuggestions';
 import TVShowsList from '../../components/TVShowsComponents/TVShows/TVShows';
 
 import Loader from 'react-loader-spinner';
@@ -13,7 +13,7 @@ class NowOnAirTVShows extends Component {
     loading: true,
     onAirTVShows: [],
     total_pages: 0,
-    page: 2
+    page: 2,
   };
 
   componentDidMount() {
@@ -32,7 +32,9 @@ class NowOnAirTVShows extends Component {
 
   loadMore = async () => {
     const resp = await fetch(
-      `https://api.themoviedb.org/3/tv/on_the_air?api_key=${APIKEY}&language=en-US&page=${this.state.page}`
+      `https://api.themoviedb.org/3/tv/on_the_air?api_key=${APIKEY}&language=en-US&page=${
+        this.state.page
+      }`
     );
     const tvshows = await resp.json();
 
@@ -45,24 +47,24 @@ class NowOnAirTVShows extends Component {
 
   render() {
     return (
-      <section className='now-on-air-tv-shows-container'>
+      <section className="now-on-air-tv-shows-container">
         {this.state.loading ? (
-          <div className='loader-container'>
-            <Loader type='Oval' color='#fff' width={60} height={60} />
+          <div className="loader-container">
+            <Loader type="Oval" color="#fff" width={60} height={60} />
           </div>
         ) : (
           <>
-            <SearchBoxWithSuggestions />
+            <SearchBoxWithSuggestionsTV />
 
             <TVShowsList
               displayNavButtons
-              title='Currently Airing TV Shows'
+              title="Currently Airing TV Shows"
               tvShowList={this.state.onAirTVShows}
             />
           </>
         )}
-        <div className='loadmore-container'>
-          <button className='btn' onClick={this.loadMore}>
+        <div className="loadmore-container">
+          <button className="btn" onClick={this.loadMore}>
             Load More
           </button>
         </div>
