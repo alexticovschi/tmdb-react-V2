@@ -8,7 +8,6 @@
 
 ## Project Description
 
-Utilizes TMDb API to display data
 This is a React web app for visualizing movie info.
 Browse your favorite Movies, TV shows, actors, recently added movies, and detailed information about each movie.
 
