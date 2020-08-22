@@ -67,28 +67,25 @@
   }
 }
 
-@media screen and (min-width: 800px) {
-  .card {
-    flex: 0 1 calc(18.8%);
-    min-height: 35vh !important;
-  }
-}
-
 @media screen and (max-width: 1325px) {
   .card {
     flex: 0 1 calc(24.9% - 0.5rem);
   }
 }
 
-@media screen and (max-width: 1125px) {
-  .card {
-    flex: 0 1 calc(22% - 0.5rem);
-  }
-}
-
 @media screen and (max-width: 855px) {
   .card {
     flex: 0 1 calc(30% - 0.5rem);
+  }
+}
+
+@media (max-width: 675px) {
+  .details {
+    display: none;
+  }
+
+  .frame {
+    min-height: 5vh;
   }
 }
 
@@ -103,15 +100,12 @@
   }
 }
 
-@media (max-width: 675px) {
-  .details {
-    display: none;
-  }
-
-  .frame {
-    min-height: 5vh;
+@media screen and (min-width: 1200px) {
+  .card {
+    flex: 0 1 calc(18.9%);
   }
 }
+
 
 @keyframes animateCard {
   from {
