@@ -14,14 +14,6 @@
 
 .carousel-slider {
     background-color: rgb(207, 207, 207);
-
-    @media screen and (min-width: 1220px) {
-        min-height: 69vh;
-    }
-
-    @media screen and (max-width: 500px) {
-        min-height: 31vh;
-    }
 }
 
 .carousel .thumbs-wrapper,
