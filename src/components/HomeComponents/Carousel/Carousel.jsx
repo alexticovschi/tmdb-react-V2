@@ -9,8 +9,8 @@ export default () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const fetchMovie = async () => await getNowPlayingMovies();
-    fetchMovie();
+    const fetchMovies = async () => await getNowPlayingMovies();
+    fetchMovies();
   }, []);
 
   const getNowPlayingMovies = async () => {

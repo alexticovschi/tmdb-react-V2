@@ -1,75 +1,64 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 import MovieList from "../../components/MoviesComponents/Movies/Movies";
-
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { APIKEY } from "../../config";
 
 import "./movies.scss";
 
-class Movies extends Component {
-  state = {
-    loading: true,
-    movies: [],
-    total_pages: 0,
-    page: 2
-  };
+const Movies = () => {
+  const [loading, isLoading] = useState(false);
+  const [movies, setMovies] = useState();
+  const [page, setPage] = useState(2);
 
-  componentDidMount() {
-    this.getMovies();
-  }
+  useEffect(() => {
+    const fetchMovies = async () => await getMovies();
+    fetchMovies();
+  }, []);
 
-  getMovies = async () => {
+  const getMovies = async () => {
+    isLoading(true);
+
     const resp = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&sort_by=popularity.desc&page=${this.state.page}`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&sort_by=popularity.desc`
     );
-    const movies = await resp.json();
+    const data = await resp.json();
+    setMovies(data.results);
 
-    let count = this.state.page + 1;
-    this.setState({ page: count });
-
-    const new_list = [...this.state.movies, ...movies.results];
-    this.setState({ movies: new_list });
-
-    setTimeout(() => this.setState({ loading: false }), 150);
+    isLoading(false);
   };
 
-  getMovieById = async ID => {
+  const loadMoreMovies = async () => {
     const resp = await fetch(
-      `https://api.themoviedb.org/3/movie/${ID}?&api_key=${APIKEY}&language=en-US`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&sort_by=popularity.desc&page=${page}`
     );
-    const movie = await resp.json();
-    this.setState({ movie });
+    const data = await resp.json();
+    setPage(page + 1);
+    const newList = [...movies, ...data.results];
+    setMovies(newList);
   };
 
-  render() {
-    return (
-      <div className="movies-container">
-        {this.state.loading ? (
-          <div className="loader-container">
-            <Loader type="Oval" color="#fff" width={60} height={60} />
-          </div>
-        ) : (
-          <>
-            <SearchBoxWithSuggestions />
-
-            <MovieList
-              displayNavButtons
-              title="Movies"
-              movieList={this.state.movies}
-              getMovieById={this.getMovieById}
-            />
-          </>
-        )}
-        <div className="loadmore-container">
-          <button className="btn" onClick={this.getMovies}>
-            Load More
-          </button>
+  return (
+    <div className="movies-container">
+      {loading ? (
+        <div className="loader-container">
+          <Loader type="Oval" color="#fff" width={60} height={60} />
         </div>
+      ) : (
+        <>
+          <SearchBoxWithSuggestions />
+
+          <MovieList displayNavButtons title="Movies" movieList={movies} />
+        </>
+      )}
+      <div className="loadmore-container">
+        <button className="btn" onClick={loadMoreMovies}>
+          Load More
+        </button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Movies;
