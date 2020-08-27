@@ -1,10 +1,10 @@
-import React from 'react';
-import MovieItem from '../MovieItem/MovieItem';
+import React from "react";
+import MovieItem from "../MovieItem/MovieItem";
 
-const MovieList = ({ movieList, getMovieById }) => {
-  const base_url = 'https://image.tmdb.org/t/p/w342';
+const MovieList = ({ movieList }) => {
+  const base_url = "https://image.tmdb.org/t/p/w342";
   const not_available_poster =
-    'https://dummyimage.com/342x500/7b8a91/ffffff&text=Poster+Not+Available';
+    "https://dummyimage.com/342x500/7b8a91/ffffff&text=Poster+Not+Available";
   const movie_list =
     movieList &&
     movieList.map((movie, idx) => (
@@ -12,7 +12,6 @@ const MovieList = ({ movieList, getMovieById }) => {
         key={idx}
         id={movie.id}
         releaseDate={movie.release_date && movie.release_date.slice(0, 4)}
-        getMovieById={getMovieById}
         title={movie.title}
         voteAvg={movie.vote_average}
         mediaType={movie.media_type}
