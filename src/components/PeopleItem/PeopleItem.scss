@@ -4,14 +4,20 @@
     border-top-left-radius: 0.3rem;
     border-top-right-radius: 0.3rem;
   }
+
   border-radius: 0.3rem;
-  border: 1px solid var(--lightGrey);
+  transition: all 0.3s ease-in;
 
   &__title {
     font-size: 1rem;
     text-align: center;
   }
+
   animation: animateCard 1s;
+
+  &:hover {
+    filter: brightness(120%);
+  }
 }
 
 @keyframes animateCard {
