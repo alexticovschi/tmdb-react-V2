@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 import Carousel from "../../components/HomeComponents/Carousel/Carousel";
 import HomeMovieList from "../../components/HomeComponents/HomeMovieList/HomeMovieList";
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Spinner from "../../components/Spinner/Spinner";
 
 import { APIKEY } from "../../config";
 
@@ -32,9 +31,7 @@ const Home = () => {
   return (
     <div className="home-container">
       {loading ? (
-        <div className="loader-container">
-          <Loader type="Oval" color="#fff" width={60} height={60} />
-        </div>
+        <Spinner />
       ) : (
         <>
           <SearchBoxWithSuggestions />
