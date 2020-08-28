@@ -16,7 +16,7 @@ const MovieData = ({
   base_url1,
   base_url2,
   movie,
-  list
+  list,
 }) => (
   <section className="movie-data">
     <div className="movie-data__inner">
@@ -40,7 +40,7 @@ const MovieData = ({
           {list !== null ? (
             <div className="movie-data__details__genre">
               <strong>Genre: </strong>
-              {list.map(genre => (
+              {list.map((genre) => (
                 <Link
                   key={genre.id}
                   to={`/genres/${genre.id}`}
