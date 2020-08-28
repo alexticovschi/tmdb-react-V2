@@ -1,138 +1,152 @@
-import React, { Component } from 'react';
-import MovieList from '../../components/MoviesComponents/Movies/Movies';
+import React, { Component, useState, useEffect } from "react";
+import MovieList from "../../components/MoviesComponents/Movies/Movies";
 
-import Select from 'react-select';
-import Loader from 'react-loader-spinner';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import './genres.scss';
-import { APIKEY } from '../../config';
+import Select from "react-select";
+import Spinner from "../../components/Spinner/Spinner";
 
-class Genres extends Component {
-  state = {
-    loading: true,
-    genre: [],
-    movieGenres: [],
-    total_pages: 0,
-    page: 2,
-    id: null,
-    selectedOption: null
-  };
+import "./genres.scss";
+import { APIKEY } from "../../config";
 
-  componentDidMount() {
-    const { genre_id } = this.props.match.params;
-    this.getGenreById(genre_id);
-    this.getMovieGenres();
-  }
+const Genres = (props) => {
+  const [loading, setLoading] = useState(false);
+  const [movieGenres, setMovieGenres] = useState([]);
+  const [genre, setGenre] = useState([]);
+  const [page, setPage] = useState(1);
+  const [id, setID] = useState(null);
+  const [totalPages, setSetTotalPages] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
 
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      this.getGenreById(this.state.selectedOption.value);
-    }
-  }
+  const { genre_id } = props.match.params;
+  const options = [];
 
-  loadMore = async () => {
-    if (!this.state.total_pages > 1) return false;
-    const ID = this.state.id;
+  movieGenres.map((i) => options.push({ label: i.name, value: i.id }));
+
+  useEffect(
+    () => {
+      const fetchData = async () => {
+        setLoading(true);
+
+        await getGenreById(genre_id);
+        await getMovieGenres();
+
+        setLoading(false);
+      };
+      fetchData();
+    },
+    [genre_id]
+  );
+
+  const nextPage = async () => {
+    setLoading(true);
+
+    setPage(page + 1);
+
     const resp = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?with_genres=${ID}&api_key=${APIKEY}&page=${this.state.page}&sort_by=popularity.desc&primary_release_year=2018`
+      `https://api.themoviedb.org/3/discover/movie?with_genres=${id}&api_key=${APIKEY}&page=${page}&sort_by=popularity.desc&primary_release_year=2018`
     );
-    let count = this.state.page + 1;
-    this.setState({ page: count });
     const data = await resp.json();
 
-    const new_list = [
-      ...this.state.genre,
-      ...data.results.filter(item => item.poster_path !== null)
+    const newList = [
+      ...data.results.filter((item) => item.poster_path !== null),
     ];
-    this.setState({ genre: new_list });
+    setGenre(newList);
+
+    setLoading(false);
   };
 
-  getMovieGenres = async () => {
+  const prevPage = async () => {
+    setLoading(true);
+
+    if (!totalPages > 1) return false;
+    const resp = await fetch(
+      `https://api.themoviedb.org/3/discover/movie?with_genres=${id}&api_key=${APIKEY}&page=${page}&sort_by=popularity.desc&primary_release_year=2018`
+    );
+    setPage(page - 1);
+    const data = await resp.json();
+
+    const newList = [
+      ...data.results.filter((item) => item.poster_path !== null),
+    ];
+    setGenre(newList);
+
+    setLoading(false);
+  };
+
+  const getMovieGenres = async () => {
     const resp = await fetch(
       `https://api.themoviedb.org/3/genre/movie/list?&api_key=${APIKEY}&language=en-US`
     );
 
     const data = await resp.json();
-    this.setState({ movieGenres: data.genres });
-    setTimeout(() => this.setState({ loading: false }), 150);
+    setMovieGenres(data.genres);
+    setLoading(false);
   };
 
-  getGenreById = async ID => {
+  const getGenreById = async (ID) => {
     const resp = await fetch(
       `https://api.themoviedb.org/3/discover/movie?with_genres=${ID}&api_key=${APIKEY}&sort_by=popularity.desc`
     );
 
     const data = await resp.json();
 
-    this.setState({
-      total_pages: data.total_pages,
-      page: 2,
-      genre: data.results,
-      id: ID
-    });
+    setSetTotalPages(data.total_pages);
+    setGenre(data.results);
+    setID(ID);
   };
 
-  handleChange = selectedOption => {
-    this.setState({ selectedOption });
-    this.props.history.push(`/genres/${selectedOption.value}`);
+  const handleChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+    props.history.push(`/genres/${selectedOption.value}`);
   };
 
-  onChange = e => this.props.history.push(`/genre/${e.target.value}`);
-
-  render() {
-    const { selectedOption, movieGenres } = this.state;
-    const options = [];
-
-    movieGenres.map(item => {
-      return options.push({ label: item.name, value: item.id });
-    });
-
-    return (
-      <div className='genres-container'>
-        {this.state.loading ? (
-          <div className='loader-container'>
-            <Loader type='Oval' color='#fff' width={60} height={60} />
-          </div>
-        ) : (
-          <>
-            <div className='genres-container__inner'>
-              <div className='genres-container__select'>
-                <Select
-                  className='select'
-                  value={selectedOption}
-                  onChange={this.handleChange}
-                  options={options}
-                  placeholder={'Select a genre...'}
-                  theme={theme => ({
-                    ...theme,
-                    borderRadius: 0,
-                    colors: {
-                      ...theme.colors,
-                      primary25: '#88d383',
-                      neutral20: 'green',
-                      primary: 'green'
-                    }
-                  })}
-                />
-              </div>
-              <MovieList
-                displayNavButtons='false'
-                title='Genres'
-                movieList={this.state.genre}
-                getMovieById={this.getMovieById}
+  return (
+    <div className="genres-container">
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <div className="genres-container__inner">
+            <div className="genres-container__select">
+              <Select
+                className="select"
+                value={selectedOption}
+                onChange={handleChange}
+                options={options}
+                placeholder={"Select a genre..."}
+                theme={(theme) => ({
+                  ...theme,
+                  borderRadius: 0,
+                  colors: {
+                    ...theme.colors,
+                    primary25: "#88d383",
+                    neutral20: "green",
+                    primary: "green",
+                  },
+                })}
               />
             </div>
-          </>
-        )}
+            <MovieList
+              displayNavButtons="false"
+              title="Genres"
+              movieList={genre}
+            />
+          </div>
+        </>
+      )}
 
-        <div className='loadmore-container'>
-          <button className='btn' onClick={this.loadMore}>
-            Load More
+      <div className="pagination-container">
+        {page !== 1 ? (
+          <button className="btn" onClick={prevPage}>
+            Prev Page
           </button>
-        </div>
+        ) : null}
+
+        <button className="btn" onClick={nextPage}>
+          Next Page
+        </button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Genres;

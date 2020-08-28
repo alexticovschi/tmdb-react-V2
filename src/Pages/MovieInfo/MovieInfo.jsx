@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 import MovieData from "../../components/MovieInfoComponents/MovieData/MovieData";
 import MovieOverview from "../../components/MovieInfoComponents/MovieOverview/MovieOverview";
