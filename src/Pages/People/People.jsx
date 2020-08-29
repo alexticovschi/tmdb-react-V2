@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestionsPerson/SearchBoxWithSuggestions";
 
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Spinner from "../../components/Spinner/Spinner";
+
 import PeopleList from "../../components/PeopleList/PeopleList";
 import { APIKEY } from "../../config";
 import "./People.scss";
@@ -11,7 +11,6 @@ const People = (props) => {
   const [people, setPeople] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [totalPages, setSetTotalPages] = useState(0);
 
   useEffect(
     () => {
@@ -37,9 +36,7 @@ const People = (props) => {
   return (
     <div className="people-page">
       {loading ? (
-        <div className="loader-container">
-          <Loader type="Oval" color="#fff" width={60} height={60} />
-        </div>
+        <Spinner />
       ) : (
         <>
           <SearchBoxWithSuggestions />
