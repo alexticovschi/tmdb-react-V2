@@ -6,6 +6,7 @@
 
   background-color: var(--mainWhite);
   padding: 2rem 1rem;
+  min-height: 100vh;
 
   @media (max-width: 650px) {
     grid-column: full-start / full-end;
