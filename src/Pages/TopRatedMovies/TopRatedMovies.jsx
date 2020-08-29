@@ -1,77 +1,69 @@
-import React, { Component } from 'react';
-import SearchBoxWithSuggestions from '../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions';
-import MovieList from '../../components/MoviesComponents/Movies/Movies';
+import React, { useState, useEffect } from "react";
+import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
+import MovieList from "../../components/MoviesComponents/Movies/Movies";
+import Spinner from "../../components/Spinner/Spinner";
 
-import Loader from 'react-loader-spinner';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import { APIKEY } from '../../config';
+import { APIKEY } from "../../config";
 
-import './topRatedMovies.scss';
+import "./topRatedMovies.scss";
 
-class PopularTVShows extends Component {
-  state = {
-    loading: true,
-    topRatedMovies: [],
-    total_pages: 0,
-    page: 2
-  };
+const TopRatedMovies = () => {
+  const [loading, setLoading] = useState(false);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [page, setPage] = useState(1);
 
-  componentDidMount() {
-    this.getTopRatedMovies();
-  }
+  useEffect(
+    () => {
+      const fetchData = async () => await getTopRatedMovies();
+      fetchData();
+    },
+    [page]
+  );
 
-  getTopRatedMovies = async () => {
+  const getTopRatedMovies = async () => {
+    setLoading(true);
+
     const resp = await fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?&api_key=${APIKEY}&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/top_rated?&api_key=${APIKEY}&language=en-US&page=${page}`
     );
     const topRatedMovies = await resp.json();
-    this.setState({ topRatedMovies: topRatedMovies.results });
+    setTopRatedMovies(topRatedMovies.results);
 
-    setTimeout(() => this.setState({ loading: false }), 150);
+    setLoading(false);
   };
 
-  getMovies = async () => {
-    const resp = await fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?&api_key=${APIKEY}&language=en-US&page=${this.state.page}`
-    );
-    const movies = await resp.json();
+  const nextPage = () => setPage(page + 1);
+  const prevPage = () => setPage(page - 1);
 
-    let count = this.state.page + 1;
-    this.setState({ page: count });
+  return (
+    <section className="top-rated-movies-container">
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <SearchBoxWithSuggestions />
 
-    const new_list = [...this.state.topRatedMovies, ...movies.results];
-    this.setState({ topRatedMovies: new_list });
+          <MovieList
+            displayNavButtons
+            title="Top Rated Movies"
+            movieList={topRatedMovies}
+          />
+        </>
+      )}
 
-    setTimeout(() => this.setState({ loading: false }), 150);
-  };
-
-  render() {
-    return (
-      <section className='top-rated-movies-container'>
-        {this.state.loading ? (
-          <div className='loader-container'>
-            <Loader type='Oval' color='#fff' width={60} height={60} />
-          </div>
-        ) : (
-          <>
-            <SearchBoxWithSuggestions />
-
-            <MovieList
-              displayNavButtons
-              title='Top Rated Movies'
-              movieList={this.state.topRatedMovies}
-              getMovieById={this.getMovieById}
-            />
-          </>
-        )}
-        <div className='loadmore-container'>
-          <button className='btn' onClick={this.getMovies}>
-            Load More
+      <div className="pagination-container">
+        {page > 1 ? (
+          <button className="btn" onClick={prevPage}>
+            Prev Page
           </button>
-        </div>
-      </section>
-    );
-  }
-}
+        ) : null}
 
-export default PopularTVShows;
+        <button className="btn" onClick={nextPage}>
+          Next Page
+        </button>
+      </div>
+    </section>
+  );
+};
+
+export default TopRatedMovies;

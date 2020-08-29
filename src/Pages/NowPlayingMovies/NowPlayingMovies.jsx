@@ -1,76 +1,68 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import SearchBoxWithSuggestions from "../../components/SearchBoxWithSuggestions/SearchBoxWithSuggestions";
 import MovieList from "../../components/MoviesComponents/Movies/Movies";
-
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Spinner from "../../components/Spinner/Spinner";
 import { APIKEY } from "../../config";
 
 import "./nowPlayingMovies.scss";
 
-class NowPlayingMovies extends Component {
-  state = {
-    loading: true,
-    nowPlayingMovies: [],
-    total_pages: 0,
-    page: 2
-  };
+const PopularMovies = () => {
+  const [loading, setLoading] = useState(false);
+  const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
+  const [page, setPage] = useState(1);
 
-  componentDidMount() {
-    this.getNowPlayingMovies();
-  }
+  useEffect(
+    () => {
+      const fetchData = async () => await getNowPlayingMovies();
+      fetchData();
+    },
+    [page]
+  );
 
-  getNowPlayingMovies = async () => {
+  const getNowPlayingMovies = async () => {
+    setLoading(true);
+
     const resp = await fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?&api_key=${APIKEY}&language=en-US&page=1`
-    );
-    const nowPlayingMovies = await resp.json();
-
-    this.setState({ nowPlayingMovies: nowPlayingMovies.results });
-
-    setTimeout(() => this.setState({ loading: false }), 150);
-  };
-
-  getMovies = async () => {
-    const resp = await fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=${APIKEY}&sort_by=popularity.desc&page=${this.state.page}`
+      `https://api.themoviedb.org/3/movie/now_playing?&api_key=${APIKEY}&language=en-US&page=${page}`
     );
     const movies = await resp.json();
+    setNowPlayingMovies(movies.results);
 
-    let count = this.state.page + 1;
-    this.setState({ page: count });
-
-    const new_list = [...this.state.nowPlayingMovies, ...movies.results];
-    this.setState({ nowPlayingMovies: new_list });
+    setLoading(false);
   };
 
-  render() {
-    return (
-      <section className="now-playing-movies-container">
-        {this.state.loading ? (
-          <div className="loader-container">
-            <Loader type="Oval" color="#fff" width={60} height={60} />
-          </div>
-        ) : (
-          <>
-            <SearchBoxWithSuggestions />
+  const nextPage = () => setPage(page + 1);
+  const prevPage = () => setPage(page - 1);
 
-            <MovieList
-              displayNavButtons={true}
-              title="Now Playing Movies"
-              movieList={this.state.nowPlayingMovies}
-              getMovieById={this.getMovieById}
-            />
-          </>
-        )}
-        <div className="loadmore-container">
-          <button className="btn" onClick={this.getMovies}>
-            Load More
+  return (
+    <section className="top-rated-movies-container">
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <SearchBoxWithSuggestions />
+
+          <MovieList
+            displayNavButtons
+            title="Now Playing Movies"
+            movieList={nowPlayingMovies}
+          />
+        </>
+      )}
+
+      <div className="pagination-container">
+        {page > 1 ? (
+          <button className="btn" onClick={prevPage}>
+            Prev Page
           </button>
-        </div>
-      </section>
-    );
-  }
-}
+        ) : null}
 
-export default NowPlayingMovies;
+        <button className="btn" onClick={nextPage}>
+          Next Page
+        </button>
+      </div>
+    </section>
+  );
+};
+
+export default PopularMovies;
