@@ -11,12 +11,14 @@ $base-color: #74dfaf;
     animation: animateBackdrop 1.5s;
 
     &__inner {
+        overflow: hidden;
+
         grid-column: center-start / center-end;
         display: grid;
         grid-template-columns: repeat(14, 1fr);
         grid-template-rows: repeat(10, 3.2vw);
 
-        @media (max-width: 1220px) {
+        @media (max-width: 1320px) {
             grid-template-rows: repeat(12, 5vw);
         }
 
@@ -30,8 +32,15 @@ $base-color: #74dfaf;
             grid-template-rows: repeat(10, 9vw);
         }
 
-        animation: animateBackdrop 1s;
+        @media (min-width: 1320px) {
+            grid-template-rows: repeat(12, 3.5vw);
+        }
 
+        @media (min-width: 1820px) {
+            grid-template-rows: repeat(12, 1.8vw);
+        }
+
+        animation: animateBackdrop 1s;
     }
 
     &__backdrop {
