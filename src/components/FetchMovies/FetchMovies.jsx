@@ -11,6 +11,7 @@ const FetchMovies = ({ pageTitle, slug }) => {
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(
     () => {
@@ -28,7 +29,7 @@ const FetchMovies = ({ pageTitle, slug }) => {
     );
     const data = await resp.json();
     setMovies(data.results);
-
+    setTotalPages(data.total_pages);
     setLoading(false);
   };
 
@@ -54,9 +55,11 @@ const FetchMovies = ({ pageTitle, slug }) => {
           </button>
         ) : null}
 
-        <button className="btn" onClick={nextPage}>
-          Next Page
-        </button>
+        {totalPages > page ? (
+          <button className="btn" onClick={nextPage}>
+            Next Page
+          </button>
+        ) : null}
       </div>
     </section>
   );

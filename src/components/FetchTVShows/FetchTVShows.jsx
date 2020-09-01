@@ -11,6 +11,7 @@ const FetchTVShows = ({ pageTitle, slug }) => {
   const [loading, setLoading] = useState(false);
   const [tvShows, setTVShows] = useState([]);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(
     () => {
@@ -27,8 +28,8 @@ const FetchTVShows = ({ pageTitle, slug }) => {
       `https://api.themoviedb.org/3/tv/${slug}?&api_key=${APIKEY}&sort_by=popularity.desc&language=en-US&page=${page}`
     );
     const data = await resp.json();
+    setTotalPages(data.total_pages);
     setTVShows(data.results);
-
     setLoading(false);
   };
 
@@ -58,9 +59,11 @@ const FetchTVShows = ({ pageTitle, slug }) => {
           </button>
         ) : null}
 
-        <button className="btn" onClick={nextPage}>
-          Next Page
-        </button>
+        {totalPages > page ? (
+          <button className="btn" onClick={nextPage}>
+            Next Page
+          </button>
+        ) : null}
       </div>
     </section>
   );
